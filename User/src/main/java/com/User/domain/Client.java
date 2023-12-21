@@ -9,17 +9,17 @@ public class Client extends User{
     private Integer brojZakazanihTreninga;
 
     private Integer brojClanskeKartice;
-    private Boolean IsBanovan;
+    private boolean IsBanovan = false;
 
     @ManyToOne
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
-    public Boolean getBanovan() {
+    public boolean getBanovan() {
         return IsBanovan;
     }
 
-    public void setBanovan(Boolean banovan) {
+    public void setBanovan(boolean banovan) {
         IsBanovan = banovan;
     }
 

@@ -89,16 +89,16 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public TokenResponseDto login(TokenRequestDto tokenRequestDto) {
-        Admin admin =  adminRepository
+        Admin admin = adminRepository
                 .findUserByUsernameAndPassword(tokenRequestDto.getUsername(), tokenRequestDto.getPassword())
                 .orElseThrow(() -> new NotFoundException(String
                         .format("Admin with username: %s and password: %s not found.", tokenRequestDto.getUsername(),
                                 tokenRequestDto.getPassword())));
-        //Create token payload
+
         Claims claims = Jwts.claims();
         claims.put("id", admin.getId());
         claims.put("role", admin.getRole().getName());
-        //Generate token
+
         return new TokenResponseDto(tokenService.generate(claims));
     }
 }

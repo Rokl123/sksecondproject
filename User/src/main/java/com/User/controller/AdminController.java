@@ -28,7 +28,8 @@ public class AdminController {
 
     @ApiOperation(value = "Ban client")
     @PostMapping("/ban/{userId}")
-    public ResponseEntity<String> banUser(@RequestBody @Valid @PathVariable Long userId) {
+    @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> banUser(@RequestHeader("Authorization") String authorization, @RequestBody @Valid @PathVariable Long userId) {
         adminService.banClient(userId);
         //notifikacija
         return ResponseEntity.ok("Client with ID " + userId + " has been banned.");
@@ -36,7 +37,8 @@ public class AdminController {
 
     @ApiOperation(value = "Unban client")
     @PostMapping("/unban/{userId}")
-    public ResponseEntity<String> unbanUser(@RequestBody @Valid @PathVariable Long userId) {
+    @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> unbanUser(@RequestHeader("Authorization") String authorization,@RequestBody @Valid @PathVariable Long userId) {
         adminService.unBanClient(userId);
         //notifikacija
         return ResponseEntity.ok("Client with ID " + userId + " has been unbanned.");

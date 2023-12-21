@@ -37,11 +37,12 @@ public class ClientMapper {
         client.setUsername(clientCreateDto.getUsername());
         client.setPassword(clientCreateDto.getPassword());
         client.setDatumRodjenja(clientCreateDto.getDatumRodjenja());
-        client.setBanovan(clientCreateDto.getBanovan());
         client.setRole(roleRepository.findRoleByName("ROLE_CLIENT").get());
         client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
         client.setBrojZakazanihTreninga(clientCreateDto.getBrojZakazanihTreninga());
         client.setManager(clientCreateDto.getManager());
+
+
         return client;
     }
 }

@@ -47,14 +47,14 @@ public class ClientController {
     @ApiOperation(value = "Register client")
     @PostMapping
     public ResponseEntity<ClientDto> saveClient(@RequestBody @Valid ClientCreateDto clientCreateDto) {
-        //notifikacija
+
         return new ResponseEntity<>(clientService.add(clientCreateDto), HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "Login")
     @PostMapping("/login")
     public ResponseEntity<TokenResponseDto> loginClient(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
-        //notifikacija
+
         return new ResponseEntity<>(clientService.login(tokenRequestDto), HttpStatus.OK);
     }
 
@@ -62,7 +62,7 @@ public class ClientController {
     @PutMapping("/{clientId}")
     public ResponseEntity<String> updateProfile(@PathVariable Long clientId, @RequestBody Client updatedClient) {
         clientService.updateProfile(Long.valueOf(clientId), updatedClient);
-        //notifikacija
+
         return ResponseEntity.ok("Profile updated successfully.");
     }
 }

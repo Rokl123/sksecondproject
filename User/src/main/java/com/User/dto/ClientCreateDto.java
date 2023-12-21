@@ -5,13 +5,13 @@ import com.User.domain.Manager;
 import javax.validation.constraints.NotBlank;
 
 public class ClientCreateDto extends AdminCreateDto{
-    @NotBlank
+
     private Integer brojZakazanihTreninga;
-    @NotBlank
+
     private Integer brojClanskeKartice;
-    @NotBlank
-    private Boolean isBanovan;
-    @NotBlank
+
+    private Boolean isBanovan=false;
+
     private Manager manager;
 
     public Manager getManager() {
