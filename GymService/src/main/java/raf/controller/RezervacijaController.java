@@ -14,6 +14,7 @@ import raf.service.RezervacijaService;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/reservation")
 public class RezervacijaController {
 
     private RezervacijaService rezervacijaService ;
@@ -43,7 +44,7 @@ public class RezervacijaController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/client")
     @CheckSecurity(roles={"ROLE_ADMIN,ROLE_CLIENT"})
     public ResponseEntity deleteReservationClient(RezervacijaUpdateDto rezervacijaUpdateDto){
         rezervacijaService.deleteById(rezervacijaUpdateDto);
