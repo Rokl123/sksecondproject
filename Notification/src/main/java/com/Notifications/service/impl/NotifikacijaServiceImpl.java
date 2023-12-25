@@ -1,22 +1,17 @@
 package com.Notifications.service.impl;
 
 import com.Notifications.domain.Notifikacija;
-import com.Notifications.domain.TipNotifikacije;
 import com.Notifications.dto.NotifikacijaDto;
-import com.Notifications.dto.NotifikacijaFilterDto;
 import com.Notifications.dto.NotifikacijeCreateDto;
 import com.Notifications.mapper.NotifikacijaMapper;
 import com.Notifications.repository.NotificationRepository;
 import com.Notifications.service.EmailService;
 import com.Notifications.service.NotifikacijaService;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
+@EnableAsync
 @Service
 public class NotifikacijaServiceImpl implements NotifikacijaService {
 
