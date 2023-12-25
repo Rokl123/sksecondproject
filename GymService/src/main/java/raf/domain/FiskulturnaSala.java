@@ -1,5 +1,7 @@
 package raf.domain;
 
+import com.User.domain.Manager;
+import com.User.domain.User;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -18,6 +20,10 @@ public class FiskulturnaSala {
     private String name;
     @Column(nullable = false)
     private int kapacitet;
+
+    @NotNull
+    @OneToOne
+    private Manager manager;
 
     @Nullable
     private String opis;

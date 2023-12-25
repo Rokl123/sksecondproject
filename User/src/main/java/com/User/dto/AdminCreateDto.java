@@ -1,9 +1,8 @@
 package com.User.dto;
 
-import org.hibernate.validator.constraints.Length;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 public class AdminCreateDto {
@@ -15,7 +14,6 @@ public class AdminCreateDto {
     private String lastName;
     @NotBlank
     private String username;
-    @Length(min = 4, max = 20)
     private String password;
     private Date datumRodjenja;
 

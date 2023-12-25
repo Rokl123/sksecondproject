@@ -1,13 +1,12 @@
 package com.User.dto;
 
 import com.User.domain.Manager;
-
-import javax.validation.constraints.NotBlank;
+//import jakarta.validation.constraints.NotNull;
 
 public class ClientCreateDto extends AdminCreateDto{
 
     private Integer brojZakazanihTreninga;
-
+    //@NotNull
     private Integer brojClanskeKartice;
 
     private Boolean isBanovan=false;

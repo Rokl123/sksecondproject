@@ -1,6 +1,8 @@
 package com.User.domain;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 @Table(indexes = {@Index(columnList = "username", unique = true), @Index(columnList = "email", unique = true)})

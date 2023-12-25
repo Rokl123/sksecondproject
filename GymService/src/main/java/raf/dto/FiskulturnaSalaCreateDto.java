@@ -2,6 +2,7 @@ package raf.dto;
 
 
 
+import com.User.domain.Manager;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
@@ -19,6 +20,7 @@ public class FiskulturnaSalaCreateDto {
 
     private int brojTrenera;
 
-
+    @NotNull
+    private Long manager_id;
 
 }

@@ -1,8 +1,8 @@
 package com.User.dto;
 
 import com.User.domain.Client;
+import jakarta.validation.constraints.NotBlank;
 
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
 
