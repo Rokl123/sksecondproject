@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GymService/GymService.iml" filepath="$PROJECT_DIR$/GymService/GymService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Notification/Notifications.iml" filepath="$PROJECT_DIR$/Notification/Notifications.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User/User.iml" filepath="$PROJECT_DIR$/User/User.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sksecondproject.iml" filepath="$PROJECT_DIR$/.idea/sksecondproject.iml" />
+    </modules>
+  </component>
+</project>
