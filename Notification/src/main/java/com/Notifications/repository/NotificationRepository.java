@@ -15,4 +15,8 @@ public interface NotificationRepository extends JpaRepository<Notifikacija, Long
     Optional<Notifikacija> findByEmail(String email);
 
     Optional<Notifikacija>findByDatumSlanja(LocalDateTime start);
+
+    Optional<Notifikacija>findAllByUser(Notifikacija notifikacija);
+
+    Optional<Notifikacija>findAllByManager(Notifikacija notifikacija);
 }
