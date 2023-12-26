@@ -7,6 +7,7 @@ import com.Notifications.mapper.NotifikacijaMapper;
 import com.Notifications.repository.NotificationRepository;
 import com.Notifications.service.EmailService;
 import com.Notifications.service.NotifikacijaService;
+import com.User.domain.Client;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
@@ -16,19 +17,16 @@ import java.util.Date;
 public class NotifikacijaServiceImpl implements NotifikacijaService {
 
     private NotificationRepository notificationRepository;
-
     private NotifikacijaMapper notifikacijaMapper;
     private MessageBrokerServiceImpl messageBrokerService;
     private EmailService emailService;
-
-    String userData;//Treba da stoji korisnik klasa da izvlacim njegove podatke preko getMetode()
-    String managerData;//Treba da stoji manger kalsa da izvlacim njegove podatke preko getMetode()
-
-    public NotifikacijaServiceImpl(NotificationRepository notificationRepository, NotifikacijaMapper notifikacijaMapper, MessageBrokerServiceImpl messageBrokerService, EmailService emailService) {
+    private Client userData;
+    public NotifikacijaServiceImpl(NotificationRepository notificationRepository, NotifikacijaMapper notifikacijaMapper, MessageBrokerServiceImpl messageBrokerService, EmailService emailService,Client userData) {
         this.notificationRepository = notificationRepository;
         this.notifikacijaMapper = notifikacijaMapper;
         this.messageBrokerService = messageBrokerService;
         this.emailService = emailService;
+        this.userData = userData;
     }
 
     @Override
@@ -42,19 +40,16 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
     @Override
     public void posaljiAktivacioniImejl(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Aktivacioni emial
-        String messageBody = String.format("Pozdrav,userData.getIme() userdataGetPrezime() Za verifikaciju posetite sledeći link: %s", notifikacija.getLink());
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData, subject, messageBody));
+        String messageBody = String.format("Pozdrav, "+userData.getIme() + userData.getPrezime()+" Za verifikaciju posetite sledeći link: %s", notifikacija.getLink());
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, messageBody));
         notificationRepository.save(notifikacija);
     }
     @Async
     @Override
     public void posaljiImejlZaPromenuLozinke(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Promena lozinke
-        String messageBody = String.format("Pozdrav,userData.getIme() userdataGetPrezime()  Za promenu lozinke posetite sledeći link: %s", notifikacija.getLink());
-
-        // Slanje emaila koristeci EmailService
-        //umesto userData treba da pise userData.getEmail()
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData, subject, messageBody));
+        String messageBody = String.format("Pozdrav, "+userData.getIme() + userData.getPrezime()+ " Za promenu lozinke posetite sledeći link: %s", notifikacija.getLink());
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, messageBody));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -62,8 +57,8 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
     public void posaljiNotifikacijuZakazivanja(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Zakazivanje treninga
         String text = notifikacija.getText();//Trening je uspešno zakazan.
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(managerData, subject, text));
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData, subject, text));
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(String.valueOf(userData.getManager().getEmail()), subject, text));
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, text));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -71,8 +66,8 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
     public void posaljiNotifikacijuOtkazivanja(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Otkazivanje treninga
         String text = notifikacija.getText();//Trening je otkazan.
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData, subject, text));
-        messageBrokerService.sendMessage( emailService.sendSimpleMessage(managerData, subject, text));
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, text));
+        messageBrokerService.sendMessage( emailService.sendSimpleMessage(String.valueOf(userData.getManager().getEmail()), subject, text));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -85,7 +80,7 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
         long jedanDan = 24 * 60 * 60 * 1000; // Milisekunde u danu
 
         if (razlika <= jedanDan) {
-            messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData, subject, text));
+            messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, text));
             notificationRepository.save(notifikacija);
         }
     }
