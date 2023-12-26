@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class FiskulturnaSalaMapper {
-    private ManagerRepository managerRepository;
+
     public FiskulturnaSalaDto DomainObjectToDto(FiskulturnaSala fs){
         FiskulturnaSalaDto fsDto = new FiskulturnaSalaDto();
         fsDto.setId(fs.getSala_id());
@@ -29,7 +29,7 @@ public class FiskulturnaSalaMapper {
         fs.setOpis(fsDto.getOpis());
         fs.setKapacitet(fsDto.getKapacitet());
         fs.setBrojTrenera(fsDto.getBrojTrenera());
-        fs.setManager(managerRepository.findById(fsDto.getManager_id()).orElseThrow(() ->new RuntimeException()));
+        fs.setManager_id(fsDto.getManager_id());
 
         return fs;
     }

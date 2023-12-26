@@ -24,9 +24,11 @@ public class ManagerController {
     }
 
     @GetMapping
-   @CheckSecurity(roles = {"ROLE_MANAGER"})
+    @CheckSecurity(roles = {"ROLE_MANAGER"})
     public ResponseEntity<Page<ManagerDto>> getAllMangers(@RequestHeader("Authorization") String authorization,
                                                           Pageable pageable) {
+
+
 
         return new ResponseEntity<>(managerService.findAll(pageable), HttpStatus.OK);
     }

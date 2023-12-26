@@ -19,7 +19,6 @@ public class User {
     private String ime;
     private String prezime;
 
-
     @ManyToOne(optional = false)
     private Role role;
 

@@ -22,8 +22,7 @@ public class FiskulturnaSala {
     private int kapacitet;
 
     @NotNull
-    @OneToOne
-    private Manager manager;
+    private Long manager_id;
 
     @Nullable
     private String opis;

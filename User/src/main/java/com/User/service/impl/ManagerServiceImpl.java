@@ -31,13 +31,7 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public Page<ManagerDto> findAll(Pageable pageable) {
-        return managerRepository.findAll(pageable)
-                .map(entity -> {
-                    if (entity instanceof Manager) {
-                        return managerMapper.managerToManagerDto(entity);
-                    }
-                    throw new NotFoundException("Expected Manager entity but found different entity type.");
-                });
+        return managerRepository.findAll(pageable).map(managerMapper::managerToManagerDto);
     }
 
     @Override

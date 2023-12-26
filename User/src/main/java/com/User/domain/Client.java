@@ -9,7 +9,6 @@ import jakarta.persistence.*;
 @Table(name = "Client")
 public class Client extends User{
     private Integer brojZakazanihTreninga;
-
     private Integer brojClanskeKartice;
     private boolean IsBanovan = false;
 

@@ -11,7 +11,7 @@ public interface FiskulturnaSalaService {
 
     Page<FiskulturnaSalaDto> findAll(Pageable pageable); //read
 
-    FiskulturnaSalaDto add(FiskulturnaSalaCreateDto fiskulturnaSalaCreateDto); //create
+    FiskulturnaSalaDto addSala(FiskulturnaSalaCreateDto fiskulturnaSalaCreateDto); //create
 
     FiskulturnaSalaDto update(Long id, FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto); //update
 

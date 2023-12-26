@@ -10,7 +10,6 @@ import java.util.List;
 @Table(name = "Manager")
 public class Manager extends User{
     private Date datumZaposljavanja;
-
     private String nazivFisSale;
     private Boolean IsBanovan;
     @Column
@@ -48,4 +47,5 @@ public class Manager extends User{
     public void setClients(List<Client> clients) {
         this.clients = clients;
     }
+
 }

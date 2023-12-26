@@ -29,7 +29,7 @@ public class FiskulturnaSalaController {
     @PostMapping
     @CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<FiskulturnaSalaDto> saveSala(@RequestBody @Valid FiskulturnaSalaCreateDto fiskulturnaSalaCreateDto){
-        return new ResponseEntity<>(fiskulturnaSalaService.add(fiskulturnaSalaCreateDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(fiskulturnaSalaService.addSala(fiskulturnaSalaCreateDto), HttpStatus.CREATED);
     }
 
     @PutMapping
