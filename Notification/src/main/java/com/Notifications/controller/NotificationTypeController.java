@@ -20,7 +20,7 @@ public class NotificationTypeController {
     }
 
     @GetMapping
-    //@CheckSecurity(roles={"ROLE_ADMIN"})
+    @CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<Page<TipNotifikacijeDto>> getAllNotificationTypes(Pageable pageable) {
         return new ResponseEntity<>(tipNotifikacijeService.findAll((org.springframework.data.domain.Pageable) pageable), HttpStatus.OK);
     }
