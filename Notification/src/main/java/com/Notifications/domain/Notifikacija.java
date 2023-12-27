@@ -23,16 +23,6 @@ public class Notifikacija {
     @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private LocalDateTime datumSlanja;
 
-
-//    @ManyToOne
-//    @JoinColumn(name = "klijent_id")
-//    private Klijent klijent;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "menadzer_id")
-//    private Menadzer menadzer;
-
-
     public String getText() {
         return text;
     }
