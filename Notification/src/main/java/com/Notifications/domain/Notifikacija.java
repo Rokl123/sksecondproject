@@ -1,18 +1,22 @@
 package com.Notifications.domain;
+import com.User.domain.Client;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
+@Getter
+@Setter
 @Entity
-@Table(name = "Notifikacija")
+@Table(name = "notifikacija")
 public class Notifikacija {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "tip_notifikacije_id")
+    @JoinColumn(name = "tipNotifikacije")
     private TipNotifikacije tipNotifikacije;
 
     private String text;
@@ -20,46 +24,9 @@ public class Notifikacija {
     private String link;
 
     @Column(name = "datum_slanja")
-    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private LocalDateTime datumSlanja;
 
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public TipNotifikacije getTipNotifikacije() {
-        return tipNotifikacije;
-    }
-
-    public void setTipNotifikacije(TipNotifikacije tipNotifikacije) {
-        this.tipNotifikacije = tipNotifikacije;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public LocalDateTime getDatumSlanja() {
-        return datumSlanja;
-    }
-
-    public void setDatumSlanja(LocalDateTime datumSlanja) {
-        this.datumSlanja = datumSlanja;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "client")
+//    private Client client;
 }

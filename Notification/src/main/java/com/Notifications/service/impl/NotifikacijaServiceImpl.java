@@ -7,27 +7,30 @@ import com.Notifications.mapper.NotifikacijaMapper;
 import com.Notifications.repository.NotificationRepository;
 import com.Notifications.service.EmailService;
 import com.Notifications.service.NotifikacijaService;
-import com.User.domain.Client;
+import com.Notifications.userservice.ClientDto;
+import com.User.exception.NotFoundException;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.Date;
 @EnableAsync
 @Service
+@AllArgsConstructor
 public class NotifikacijaServiceImpl implements NotifikacijaService {
 
     private NotificationRepository notificationRepository;
     private NotifikacijaMapper notifikacijaMapper;
     private MessageBrokerServiceImpl messageBrokerService;
+
+    private RestTemplate userServiceRestTemplate;
     private EmailService emailService;
-    private Client userData;
-    public NotifikacijaServiceImpl(NotificationRepository notificationRepository, NotifikacijaMapper notifikacijaMapper, MessageBrokerServiceImpl messageBrokerService, EmailService emailService,Client userData) {
-        this.notificationRepository = notificationRepository;
-        this.notifikacijaMapper = notifikacijaMapper;
-        this.messageBrokerService = messageBrokerService;
-        this.emailService = emailService;
-        this.userData = userData;
-    }
 
     @Override
     public NotifikacijaDto add(NotifikacijeCreateDto notifikacijeCreateDto) {
@@ -40,16 +43,36 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
     @Override
     public void posaljiAktivacioniImejl(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Aktivacioni emial
-        String messageBody = String.format("Pozdrav, "+userData.getIme() + userData.getPrezime()+" Za verifikaciju posetite sledeći link: %s", notifikacija.getLink());
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, messageBody));
+        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+        try{
+            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/", HttpMethod.GET,null, ClientDto.class);
+        } catch (HttpClientErrorException e){
+            if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
+                throw new NotFoundException(String.format("Client with id: %d not found. notifikacija.getClientId()"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        String messageBody = String.format("Pozdrav, "+clientDtoResponseEntity.getBody().getFirstName() + clientDtoResponseEntity.getBody().getLastName() +" Za verifikaciju posetite sledeći link: %s", notifikacija.getLink());
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail() , subject, messageBody));
         notificationRepository.save(notifikacija);
     }
     @Async
     @Override
     public void posaljiImejlZaPromenuLozinke(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Promena lozinke
-        String messageBody = String.format("Pozdrav, "+userData.getIme() + userData.getPrezime()+ " Za promenu lozinke posetite sledeći link: %s", notifikacija.getLink());
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, messageBody));
+        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+        try{
+            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/", HttpMethod.GET,null, ClientDto.class);
+        } catch (HttpClientErrorException e){
+            if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
+                throw new NotFoundException(String.format("Client with id: %d not found. notifikacija.getClientId()"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        String messageBody = String.format("Pozdrav, "+clientDtoResponseEntity.getBody().getFirstName() + clientDtoResponseEntity.getBody().getLastName() + " Za promenu lozinke posetite sledeći link: %s", notifikacija.getLink());
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, messageBody));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -57,8 +80,20 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
     public void posaljiNotifikacijuZakazivanja(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Zakazivanje treninga
         String text = notifikacija.getText();//Trening je uspešno zakazan.
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(String.valueOf(userData.getManager().getEmail()), subject, text));
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, text));
+
+        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+        try{
+            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/", HttpMethod.GET,null, ClientDto.class);
+        } catch (HttpClientErrorException e){
+            if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
+                throw new NotFoundException(String.format("Client with id: %d not found. notifikacija.getClientId()"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getManager().getEmail(), subject, text));
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, text));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -66,8 +101,20 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
     public void posaljiNotifikacijuOtkazivanja(Notifikacija notifikacija) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Otkazivanje treninga
         String text = notifikacija.getText();//Trening je otkazan.
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, text));
-        messageBrokerService.sendMessage( emailService.sendSimpleMessage(String.valueOf(userData.getManager().getEmail()), subject, text));
+
+        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+        try{
+            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/", HttpMethod.GET,null, ClientDto.class);
+        } catch (HttpClientErrorException e){
+            if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
+                throw new NotFoundException(String.format("Client with id: %d not found. notifikacija.getClientId()"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, text));
+        messageBrokerService.sendMessage( emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getManager().getEmail(), subject, text));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -80,7 +127,17 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
         long jedanDan = 24 * 60 * 60 * 1000; // Milisekunde u danu
 
         if (razlika <= jedanDan) {
-            messageBrokerService.sendMessage(emailService.sendSimpleMessage(userData.getEmail(), subject, text));
+            ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+            try{
+                clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/", HttpMethod.GET,null, ClientDto.class);
+            } catch (HttpClientErrorException e){
+                if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
+                    throw new NotFoundException(String.format("Client with id: %d not found. notifikacija.getClient()"));
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, text));
             notificationRepository.save(notifikacija);
         }
     }

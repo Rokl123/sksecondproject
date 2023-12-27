@@ -7,14 +7,14 @@ public class ClientDto extends AdminDto{
 
     private Integer brojClanskeKartice;
 
-    public Integer getBrojZakazanihTreninga() {
-        return brojZakazanihTreninga;
-    }
+
 
     private Boolean isBanovan;
 
     private Manager manager;
-
+    public Integer getBrojZakazanihTreninga() {
+        return brojZakazanihTreninga;
+    }
 
     public Boolean getBanovan() {
         return isBanovan;

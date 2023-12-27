@@ -2,12 +2,15 @@ package com.User.domain;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
-
+@Getter
+@Setter
 @Entity
-@Table(name = "Manager")
+@Table(name = "manager")
 public class Manager extends User{
     private Date datumZaposljavanja;
     private String nazivFisSale;
@@ -16,36 +19,5 @@ public class Manager extends User{
     @OneToMany(mappedBy = "manager")
     private List<Client> clients;
 
-    public Boolean getBanovan() {
-        return IsBanovan;
-    }
-
-    public void setBanovan(Boolean banovan) {
-        IsBanovan = banovan;
-    }
-
-    public Date getDatumZaposljavanja() {
-        return datumZaposljavanja;
-    }
-
-    public void setDatumZaposljavanja(Date datumZaposljavanja) {
-        this.datumZaposljavanja = datumZaposljavanja;
-    }
-
-    public String getNazivFisSale() {
-        return nazivFisSale;
-    }
-
-    public void setNazivFisSale(String nazivFisSale) {
-        this.nazivFisSale = nazivFisSale;
-    }
-
-    public List<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
 
 }

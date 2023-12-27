@@ -31,7 +31,7 @@ public class ManagerMapper {
         managerDto.setLastName(manager.getPrezime());
         managerDto.setUsername(manager.getUsername());
         managerDto.setDatumRodjenja(manager.getDatumRodjenja());
-        managerDto.setBanovan(manager.getBanovan());
+        managerDto.setBanovan(manager.getIsBanovan());
         managerDto.setDatumZaposljavanja(manager.getDatumZaposljavanja());
         managerDto.setNazivFisSale(manager.getNazivFisSale());
         List<Client> client = new ArrayList<>();
@@ -50,7 +50,7 @@ public class ManagerMapper {
         manager.setUsername(managerCreateDto.getUsername());
         manager.setPassword(managerCreateDto.getPassword());
         manager.setDatumRodjenja(managerCreateDto.getDatumRodjenja());
-        manager.setBanovan(managerCreateDto.getBanovan());
+        manager.setIsBanovan(managerCreateDto.getBanovan());
         manager.setRole(roleRepository.findRoleByName("ROLE_MANAGER").get());
         manager.setDatumZaposljavanja(managerCreateDto.getDatumZaposljavanja());
         manager.setNazivFisSale(managerCreateDto.getNazivFisSale());

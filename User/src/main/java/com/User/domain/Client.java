@@ -1,12 +1,14 @@
 package com.User.domain;
-
-//import javax.persistence.*;
-
-
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
-@Table(name = "Client")
+@Table(name = "client")
 public class Client extends User{
     private Integer brojZakazanihTreninga;
     private Integer brojClanskeKartice;
@@ -16,34 +18,9 @@ public class Client extends User{
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
-    public boolean getBanovan() {
-        return IsBanovan;
-    }
+//    @Column
+//    @OneToMany(mappedBy = "notifikacija")
+//    private List<Notifikacija> notifikacija;
 
-    public void setBanovan(boolean banovan) {
-        IsBanovan = banovan;
-    }
 
-    public Integer getBrojZakazanihTreninga() {
-        return brojZakazanihTreninga;
-    }
-    public void setBrojZakazanihTreninga(Integer brojZakazanihTreninga) {
-        this.brojZakazanihTreninga = brojZakazanihTreninga;
-    }
-
-    public Integer getBrojClanskeKartice() {
-        return brojClanskeKartice;
-    }
-
-    public void setBrojClanskeKartice(Integer brojClanskeKartice) {
-        this.brojClanskeKartice = brojClanskeKartice;
-    }
-
-    public Manager getManager() {
-        return manager;
-    }
-
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
 }
