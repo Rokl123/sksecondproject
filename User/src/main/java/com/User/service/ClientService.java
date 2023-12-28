@@ -10,10 +10,14 @@ import org.springframework.data.domain.Pageable;
 
 public interface ClientService {
     Page<ClientDto> findAll(Pageable pageable);
+    ClientDto findById(Long id);
 
     ClientDto add(ClientCreateDto clientCreateDto);
 
     TokenResponseDto login(TokenRequestDto tokenRequestDto);
 
     void updateProfile(Long id, Client updatedProfile);
+
+    ClientDto addReservation(Long id);
+
 }

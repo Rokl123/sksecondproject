@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import raf.domain.FiskulturnaSala;
+import raf.domain.Rezervacija;
 import raf.domain.TipTreninga;
 import raf.domain.Trening;
 import raf.dto.TreningCreateDto;
@@ -12,6 +13,7 @@ import raf.dto.TreningDto;
 import raf.dto.TreningUpdateDto;
 import raf.mapper.TreningMapper;
 import raf.repository.FiskulturnaSalaRepository;
+import raf.repository.RezervacijaRepository;
 import raf.repository.TipTreningaRepository;
 import raf.repository.TreningRepository;
 import raf.service.TreningService;
@@ -19,7 +21,7 @@ import raf.service.TreningService;
 @Service
 @AllArgsConstructor
 public class TreningServiceImpl implements TreningService {
-
+    private RezervacijaRepository rezervacijaRepository;
     private FiskulturnaSalaRepository fiskulturnaSalaRepository;
 
     private TipTreningaRepository tipTreningaRepository;
@@ -28,11 +30,21 @@ public class TreningServiceImpl implements TreningService {
 
     private TreningMapper treningMapper;
 
+
     @Override
     public Page<TreningDto> findAll(Pageable pageable) {
 
         return treningRepository.findAll(pageable).map(treningMapper::DomainObjectToDto);
     }
+
+    @Override
+    public TreningDto findById(Long id) {
+        Trening trening = treningRepository.findById(id).orElseThrow(()->new RuntimeException());
+
+
+        return treningMapper.DomainObjectToDto(trening);
+    }
+
 
     @Override
     public TreningDto add(TreningCreateDto treningCreateDto) {
@@ -49,6 +61,7 @@ public class TreningServiceImpl implements TreningService {
 
         return treningDto;
     }
+
 
     @Override
     public TreningDto update(TreningUpdateDto treningUpdateDto) {

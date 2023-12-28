@@ -48,7 +48,7 @@ public class AdminServiceImpl implements AdminService {
                 .orElse(Optional.empty());
         if (banClient.isPresent()) {
             Client client = banClient.get();
-            client.setBanovan(true);
+            client.setIsBanovan(true);
             clientRepository.save(client);
         } else {
             throw new NotFoundException("Client with ID: " + userId + " not found.");
@@ -68,7 +68,7 @@ public class AdminServiceImpl implements AdminService {
 
         if (unBanClient.isPresent()) {
             Client client = unBanClient.get();
-            client.setBanovan(false);
+            client.setIsBanovan(false);
             clientRepository.save(client);
         } else {
             throw new NotFoundException("Client with ID: " + userId + " not found.");
@@ -96,7 +96,7 @@ public class AdminServiceImpl implements AdminService {
                                 tokenRequestDto.getPassword())));
 
         Claims claims = Jwts.claims();
-        claims.put("id", admin.getId());
+        claims.put("id", admin.getAdmmin_id());
         claims.put("role", admin.getRole().getName());
 
         return new TokenResponseDto(tokenService.generate(claims));

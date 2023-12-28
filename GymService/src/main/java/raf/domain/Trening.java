@@ -2,6 +2,7 @@ package raf.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -32,9 +33,11 @@ public class Trening {
     @JoinColumn(name = "tipTreninga")
     private TipTreninga tip;
 
-    private int cenaTreninga;
+    private int brRezervacija=0;
 
-    private boolean grupni = false;
+    private int cenaTreninga;
+    @NotNull
+    private boolean grupni = true;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date terminTreninga;
 

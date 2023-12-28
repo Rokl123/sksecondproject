@@ -21,19 +21,25 @@ public class TreningController {
     private TreningService treningService;
 
     @GetMapping
-    @CheckSecurity(roles="ROLE_ADMIN,ROLE_CLIENT,ROLE_MANAGER")
+    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
     public ResponseEntity<Page<TreningDto>> findAllTrainings(@RequestHeader("Authorization") String authorization, Pageable pageable){
         return new ResponseEntity<>(treningService.findAll(pageable), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}/getTraining")
+    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
+    public ResponseEntity<TreningDto> findTrainingById(@RequestHeader("Authorization") String authorization,@PathVariable("id") Long id){
+        return new ResponseEntity<>(treningService.findById(id), HttpStatus.OK);
+    }
+
     @PutMapping
-    @CheckSecurity(roles="ROLE_ADMIN,ROLE_MANAGER")
+    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
     public ResponseEntity<TreningDto> saveTrening(@RequestBody @Valid TreningCreateDto treningCreateDto){
         return new ResponseEntity<>(treningService.add(treningCreateDto),HttpStatus.OK);
     }
 
     @PostMapping
-    @CheckSecurity(roles="ROLE_ADMIN,ROLE_MANAGER")
+    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
     public ResponseEntity<TreningDto> updateTrening(@RequestBody @Valid TreningUpdateDto treningUpdateDto){
         return new ResponseEntity<>(treningService.update(treningUpdateDto),HttpStatus.OK);
     }

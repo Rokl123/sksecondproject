@@ -7,7 +7,7 @@ public class ClientCreateDto extends AdminCreateDto{
 
     private Integer brojZakazanihTreninga;
     //@NotNull
-    private Integer brojClanskeKartice;
+    private String brojClanskeKartice;
 
     private Boolean isBanovan=false;
 
@@ -37,11 +37,11 @@ public class ClientCreateDto extends AdminCreateDto{
         this.brojZakazanihTreninga = brojZakazanihTreninga;
     }
 
-    public Integer getBrojClanskeKartice() {
+    public String getBrojClanskeKartice() {
         return brojClanskeKartice;
     }
 
-    public void setBrojClanskeKartice(Integer brojClanskeKartice) {
+    public void setBrojClanskeKartice(String brojClanskeKartice) {
         this.brojClanskeKartice = brojClanskeKartice;
     }
 }

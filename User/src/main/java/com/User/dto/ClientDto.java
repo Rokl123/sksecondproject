@@ -5,7 +5,7 @@ import com.User.domain.Manager;
 public class ClientDto extends AdminDto{
     private Integer brojZakazanihTreninga;
 
-    private Integer brojClanskeKartice;
+    private String brojClanskeKartice;
 
     public Integer getBrojZakazanihTreninga() {
         return brojZakazanihTreninga;
@@ -28,11 +28,11 @@ public class ClientDto extends AdminDto{
         this.brojZakazanihTreninga = brojZakazanihTreninga;
     }
 
-    public Integer getBrojClanskeKartice() {
+    public String getBrojClanskeKartice() {
         return brojClanskeKartice;
     }
 
-    public void setBrojClanskeKartice(Integer brojClanskeKartice) {
+    public void setBrojClanskeKartice(String brojClanskeKartice) {
         this.brojClanskeKartice = brojClanskeKartice;
     }
 

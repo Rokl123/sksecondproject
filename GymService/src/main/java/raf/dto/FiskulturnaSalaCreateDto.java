@@ -13,8 +13,8 @@ public class FiskulturnaSalaCreateDto {
 
     @Length(min = 1, max = 50)
     private String naziv;
-    @NotNull
-    private int kapacitet;
+
+    private int kapacitet=12;
 
     private String opis;
 

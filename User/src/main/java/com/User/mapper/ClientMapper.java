@@ -17,13 +17,13 @@ public class ClientMapper {
 
     public ClientDto clientToClientDto(Client client) {
         ClientDto clientDto = new ClientDto();
-        clientDto.setId(client.getId());
+        clientDto.setId(client.getClient_id());
         clientDto.setEmail(client.getEmail());
         clientDto.setFirstName(client.getIme());
         clientDto.setLastName(client.getPrezime());
         clientDto.setUsername(client.getUsername());
         clientDto.setDatumRodjenja(client.getDatumRodjenja());
-        clientDto.setBanovan(client.getBanovan());
+        clientDto.setBanovan(client.isIsBanovan());
         clientDto.setBrojZakazanihTreninga(client.getBrojZakazanihTreninga());
         clientDto.setBrojClanskeKartice(client.getBrojClanskeKartice());
         clientDto.setManager(client.getManager());
@@ -41,7 +41,6 @@ public class ClientMapper {
         client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
         client.setBrojZakazanihTreninga(clientCreateDto.getBrojZakazanihTreninga());
         client.setManager(clientCreateDto.getManager());
-
 
         return client;
     }

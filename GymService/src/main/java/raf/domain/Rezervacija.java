@@ -15,11 +15,12 @@ public class Rezervacija {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rezervacija_id;
 
-    private int brPrijavljenih; // if brPrijavljenih = kapacitet Trening-a then delete that training from list
-
     @JdbcTypeCode(SqlTypes.JSON)
     @ManyToOne
     @JoinColumn(name="rezervisaniTrening")
     private Trening rezervisaniTrening;
 
+    private int cenaTreninga ;
+
+    private Long clientID;
 }

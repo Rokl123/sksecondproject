@@ -13,5 +13,8 @@ public class RezervacijaDto {
 
     private Trening trening;
 
+    private int cenaTreninga;
+
+    private Long client_id;
 
 }

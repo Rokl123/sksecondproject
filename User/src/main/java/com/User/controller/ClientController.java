@@ -10,6 +10,7 @@ import com.User.domain.Client;
 import com.User.service.ClientService;
 
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,19 @@ public class ClientController {
                                                          Pageable pageable) {
 
         return new ResponseEntity<>(clientService.findAll(pageable), HttpStatus.OK);
+    }
+    @GetMapping("/{id}/getClient")
+    @CheckSecurity(roles = {"ROLE_ADMIN"})
+    public ResponseEntity<ClientDto> getAClientById(@RequestHeader("Authorization") String authorization,@PathVariable("id") Long id){
+
+        return new ResponseEntity<>(clientService.findById(id),HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/addReservation")
+    @CheckSecurity(roles = "ROLE_ADMIN") //ubij me
+    public ResponseEntity<ClientDto> addReservation(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
+
+        return new ResponseEntity<>(clientService.addReservation(id),HttpStatus.OK);
     }
 
 

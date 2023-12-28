@@ -52,7 +52,6 @@ public class FiskulturnaSalaServiceImpl implements FiskulturnaSalaService {
         FiskulturnaSala fs = fiskulturnaSalaMapper.DtoToDomainObject(fiskulturnaSalaCreateDto);
         fiskulturnaSalaRepository.save(fs);
 
-
         return fiskulturnaSalaMapper.DomainObjectToDto(fs);
     }
 

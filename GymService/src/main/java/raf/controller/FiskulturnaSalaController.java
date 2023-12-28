@@ -47,8 +47,8 @@ public class FiskulturnaSalaController {
 
     @DeleteMapping
     @CheckSecurity(roles={"ROLE_ADMIN"})
-    public ResponseEntity deleteSala(@RequestBody FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto){
-        fiskulturnaSalaService.deleteById(fiskulturnaSalaUpdateDto.getId());
+    public ResponseEntity deleteSala(@RequestBody FiskulturnaSalaUpdateDto fiskulturnaSalaDto){
+        fiskulturnaSalaService.deleteById(fiskulturnaSalaDto.getId());
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 

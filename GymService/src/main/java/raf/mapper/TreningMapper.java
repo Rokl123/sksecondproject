@@ -14,6 +14,10 @@ public class TreningMapper {
         tDto.setSala(trening.getSala());
         tDto.setTip(trening.getTip());
         tDto.setCenaTreninga(trening.getCenaTreninga());
+        tDto.setBrRezervacija(trening.getBrRezervacija());
+        tDto.setPocetakTermina(trening.getPocetakTermina());
+        tDto.setKrajTermina(trening.getKrajTermina());
+        tDto.setTerminTreninga(trening.getTerminTreninga());
         return tDto;
     }
 

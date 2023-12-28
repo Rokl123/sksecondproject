@@ -16,4 +16,8 @@ public class FiskulturnaSalaUpdateDto {
 
     private int brTrenera;
 
+    private int loyalty;
+
+    private Long manager_id;
+
 }

@@ -6,6 +6,7 @@ import raf.domain.FiskulturnaSala;
 import raf.domain.TipTreninga;
 
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Getter
@@ -20,11 +21,13 @@ public class TreningDto {
 
     private int cenaTreninga;
 
+    private int brRezervacija;
+
     private boolean grupni;
 
     private Date terminTreninga;
 
-    private Time pocetakTermina;
+    private LocalTime pocetakTermina;
 
-    private Time krajTermina;
+    private LocalTime krajTermina;
 }

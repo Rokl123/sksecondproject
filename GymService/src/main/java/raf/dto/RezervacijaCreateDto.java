@@ -1,5 +1,7 @@
 package raf.dto;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import lombok.Getter;
 import lombok.Setter;
 import raf.domain.Trening;
@@ -7,8 +9,12 @@ import raf.domain.Trening;
 @Setter
 public class RezervacijaCreateDto {
 
-    private int brPrijavljenih=0;
+    private int cenaTreninga;
 
     private Trening trening;
+    @NotNull
+    private Long trening_id;
+    @NotNull
+    private Long client_id;
 
 }

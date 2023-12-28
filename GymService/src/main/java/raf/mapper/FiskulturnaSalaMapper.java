@@ -27,8 +27,11 @@ public class FiskulturnaSalaMapper {
         FiskulturnaSala fs = new FiskulturnaSala();
         fs.setName(fsDto.getNaziv());
         fs.setOpis(fsDto.getOpis());
+        if(fsDto.getKapacitet() != 0)
         fs.setKapacitet(fsDto.getKapacitet());
+        if(fsDto.getBrojTrenera() != 0)
         fs.setBrojTrenera(fsDto.getBrojTrenera());
+        if(fsDto.getManager_id() != 0)
         fs.setManager_id(fsDto.getManager_id());
 
         return fs;

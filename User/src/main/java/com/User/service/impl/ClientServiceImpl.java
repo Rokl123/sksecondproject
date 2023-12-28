@@ -40,6 +40,13 @@ public class ClientServiceImpl implements ClientService {
                 });
     }
 
+    @Override
+    public ClientDto findById(Long id) {
+        Client client = clientRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        return clientMapper.clientToClientDto(client);
+    }
+
 
     @Override
     public ClientDto add(ClientCreateDto clientCreateDto) {
@@ -55,9 +62,9 @@ public class ClientServiceImpl implements ClientService {
                 .orElseThrow(() -> new NotFoundException(String
                         .format("Client with username: %s and password: %s not found.", tokenRequestDto.getUsername(),
                                 tokenRequestDto.getPassword())));
-        //Create token payload
+
         Claims claims = Jwts.claims();
-        claims.put("id", client.getId());
+        claims.put("id", client.getClient_id());
         claims.put("role", client.getRole().getName());
         //Generate token
         return new TokenResponseDto(tokenService.generate(claims));
@@ -84,6 +91,14 @@ public class ClientServiceImpl implements ClientService {
         } else {
             throw new IllegalArgumentException("Cannot update profile: User is not a Client");
         }
+    }
+
+    @Override
+    public ClientDto addReservation(Long id) {
+        Client client =clientRepository.findById(id).orElseThrow(RuntimeException::new);
+        client.setBrojZakazanihTreninga(client.getBrojZakazanihTreninga()+1);
+        clientRepository.save(client);
+        return clientMapper.clientToClientDto(client);
     }
 
 }

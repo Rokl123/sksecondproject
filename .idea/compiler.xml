@@ -12,11 +12,6 @@
         <module name="User" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="GymService" target="18" />
-      <module name="Notifications" target="1.8" />
-      <module name="User" target="18" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

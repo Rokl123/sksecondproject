@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import raf.domain.FiskulturnaSala;
+import raf.domain.Rezervacija;
 import raf.domain.TipTreninga;
 
 import java.sql.Time;
@@ -20,6 +21,8 @@ public class TreningCreateDto {
     @NotNull
     private Long tip_id;
 
+    private Long rezervacija_id;
+
     private FiskulturnaSala sala;
 
     private TipTreninga tip;
@@ -33,6 +36,7 @@ public class TreningCreateDto {
     private LocalTime pocetakTermina;
 
     private LocalTime krajTermina;
+
 
 
 }

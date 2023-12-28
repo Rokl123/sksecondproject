@@ -10,17 +10,16 @@ public class RezervacijaMapper {
     public RezervacijaDto DomainObjectToDto(Rezervacija rezervacija){
        RezervacijaDto rezervacijaDto = new RezervacijaDto();
        rezervacijaDto.setId(rezervacija.getRezervacija_id());
+       rezervacijaDto.setCenaTreninga(rezervacija.getCenaTreninga());
        rezervacijaDto.setTrening(rezervacija.getRezervisaniTrening());
-       rezervacijaDto.setBrPrijavljenih(rezervacija.getBrPrijavljenih());
 
        return rezervacijaDto;
     }
 
     public Rezervacija DtoToDomainObject(RezervacijaCreateDto rezervacijaCreateDto){
        Rezervacija rezervacija = new Rezervacija();
-       rezervacija.setBrPrijavljenih(rezervacija.getBrPrijavljenih());
+       rezervacija.setClientID(rezervacijaCreateDto.getClient_id());
        rezervacija.setRezervisaniTrening(rezervacijaCreateDto.getTrening());
-
 
        return rezervacija;
     }
