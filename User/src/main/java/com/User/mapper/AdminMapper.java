@@ -16,7 +16,7 @@ public class AdminMapper {
 
     public AdminDto adminToAdminDto(Admin admin) {
         AdminDto adminDto = new AdminDto();
-        adminDto.setId(admin.getAdmmin_id());
+        adminDto.setId(admin.getId());
         adminDto.setEmail(admin.getEmail());
         adminDto.setFirstName(admin.getIme());
         adminDto.setLastName(admin.getPrezime());

@@ -13,10 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 public class Manager extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long manager_id;
-
     private Date datumZaposljavanja;
     private String nazivFisSale;
     private Boolean IsBanovan;

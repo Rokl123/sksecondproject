@@ -17,7 +17,7 @@ public class ClientMapper {
 
     public ClientDto clientToClientDto(Client client) {
         ClientDto clientDto = new ClientDto();
-        clientDto.setId(client.getClient_id());
+        clientDto.setId(client.getId());
         clientDto.setEmail(client.getEmail());
         clientDto.setFirstName(client.getIme());
         clientDto.setLastName(client.getPrezime());

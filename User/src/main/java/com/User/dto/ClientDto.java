@@ -1,13 +1,12 @@
 package com.User.dto;
 
 import com.User.domain.Manager;
+import com.sun.jna.IntegerType;
 
 public class ClientDto extends AdminDto{
     private Integer brojZakazanihTreninga;
 
-    private String brojClanskeKartice;
-
-
+    private Integer brojClanskeKartice;
 
     private Boolean isBanovan;
 
@@ -28,11 +27,11 @@ public class ClientDto extends AdminDto{
         this.brojZakazanihTreninga = brojZakazanihTreninga;
     }
 
-    public String getBrojClanskeKartice() {
+    public Integer getBrojClanskeKartice() {
         return brojClanskeKartice;
     }
 
-    public void setBrojClanskeKartice(String brojClanskeKartice) {
+    public void setBrojClanskeKartice(Integer brojClanskeKartice) {
         this.brojClanskeKartice = brojClanskeKartice;
     }
 

@@ -25,7 +25,7 @@ public class ManagerMapper {
 
     public ManagerDto managerToManagerDto(Manager manager) {
         ManagerDto managerDto = new ManagerDto();
-        managerDto.setId(manager.getManager_id());
+        managerDto.setId(manager.getId());
         managerDto.setEmail(manager.getEmail());
         managerDto.setFirstName(manager.getIme());
         managerDto.setLastName(manager.getPrezime());
@@ -56,7 +56,7 @@ public class ManagerMapper {
         if (managerCreateDto.getClients() != null) {
             List<Client> clients = new ArrayList<>();
             for (Client clientId : managerCreateDto.getClients()) {
-                Client client = clientRepository.findById(clientId.getClient_id()).orElse(null);
+                Client client = clientRepository.findById(clientId.getId()).orElse(null);
                 if (client != null) {
                     clients.add(client);
                 }

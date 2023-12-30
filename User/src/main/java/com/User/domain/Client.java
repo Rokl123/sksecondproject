@@ -4,9 +4,13 @@ package com.User.domain;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Client")
+@Getter
+@Setter
 public class Client extends User{
     private Integer brojZakazanihTreninga;
     private Integer brojClanskeKartice;
@@ -16,34 +20,4 @@ public class Client extends User{
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
-    public boolean getBanovan() {
-        return IsBanovan;
-    }
-
-    public void setBanovan(boolean banovan) {
-        IsBanovan = banovan;
-    }
-
-    public Integer getBrojZakazanihTreninga() {
-        return brojZakazanihTreninga;
-    }
-    public void setBrojZakazanihTreninga(Integer brojZakazanihTreninga) {
-        this.brojZakazanihTreninga = brojZakazanihTreninga;
-    }
-
-    public Integer getBrojClanskeKartice() {
-        return brojClanskeKartice;
-    }
-
-    public void setBrojClanskeKartice(Integer brojClanskeKartice) {
-        this.brojClanskeKartice = brojClanskeKartice;
-    }
-
-    public Manager getManager() {
-        return manager;
-    }
-
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
 }
