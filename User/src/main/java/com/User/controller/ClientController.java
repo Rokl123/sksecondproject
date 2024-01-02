@@ -18,7 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/client/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {
     private ClientService clientService;
 
@@ -26,8 +27,9 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @GetMapping
+
     @CheckSecurity(roles = {"ROLE_CLIENTS"})
+    @GetMapping("/getAllClient")
     public ResponseEntity<Page<ClientDto>> getAllClients(@RequestHeader("Authorization") String authorization,
                                                          Pageable pageable) {
 
@@ -48,16 +50,14 @@ public class ClientController {
     }
 
 
-    @PostMapping
+    @PostMapping("/saveClient")
     public ResponseEntity<ClientDto> saveClient(@RequestBody @Valid ClientCreateDto clientCreateDto) {
-
         return new ResponseEntity<>(clientService.add(clientCreateDto), HttpStatus.CREATED);
     }
 
 
     @PostMapping("/login")
     public ResponseEntity<TokenResponseDto> loginClient(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
-
         return new ResponseEntity<>(clientService.login(tokenRequestDto), HttpStatus.OK);
     }
 

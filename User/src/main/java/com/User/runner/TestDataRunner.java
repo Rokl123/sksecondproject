@@ -62,9 +62,10 @@ public class TestDataRunner implements CommandLineRunner {
         client.setIme("Mihailo");
         client.setPrezime("Protic");
         client.setBrojClanskeKartice(123456789);
+        client.setEmail("test@gmail.com");
         client.setUsername("dsdsads");
         client.setRole(roleClient);
-        client.setPassword("12345678");
+        client.setPassword("1234");
         userRepository.save(client);
     }
 }
