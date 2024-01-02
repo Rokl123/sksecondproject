@@ -1,9 +1,10 @@
-package raf.userservice;
+package raf.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
@@ -14,18 +15,18 @@ import java.io.IOException;
 import java.util.Collections;
 
 @Configuration
-public class TrainingsConfiguration {
+public class UserServiceConfiguration { //sinhrona komunikacija
 
     @Bean
-    public RestTemplate trainingServiceRestTemplate(){
+    public RestTemplate userServiceRestTemplate(){
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:8080/api"));
+        restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:8888/api"));
         restTemplate.setInterceptors(Collections.singletonList(new TokenIntereceptor()));
 
         return restTemplate;
     }
 
-    private class TokenIntereceptor implements ClientHttpRequestInterceptor {
+    private class TokenIntereceptor implements ClientHttpRequestInterceptor{
 
         @Override
         public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
@@ -35,4 +36,5 @@ public class TrainingsConfiguration {
         }
 
     }
+
 }

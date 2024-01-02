@@ -43,7 +43,7 @@ public class ClientController {
     }
 
     @PostMapping("/{id}/addReservation")
-    @CheckSecurity(roles = "ROLE_ADMIN") //ubij me
+    @CheckSecurity(roles = "ROLE_ADMIN")
     public ResponseEntity<ClientDto> addReservation(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
 
         return new ResponseEntity<>(clientService.addReservation(id),HttpStatus.OK);

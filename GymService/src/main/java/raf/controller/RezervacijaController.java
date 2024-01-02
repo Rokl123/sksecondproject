@@ -3,6 +3,7 @@ package raf.controller;
 import com.User.domain.Client;
 import com.User.exception.NotFoundException;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import io.github.resilience4j.retry.Retry;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
@@ -21,6 +22,7 @@ import raf.dto.RezervacijaUpdateDto;
 import raf.dto.TreningDto;
 import raf.security.CheckSecurity;
 import raf.service.RezervacijaService;
+import raf.service.TreningService;
 import raf.userservice.ClientDto;
 
 import static org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder.decode;
@@ -30,9 +32,11 @@ import static org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder.decode;
 @RequestMapping("/reservation")
 public class RezervacijaController {
 
-    private RezervacijaService rezervacijaService ;
+    private RezervacijaService rezervacijaService;
+    private TreningService treningService;
     private RestTemplate userServiceRestTemplate;
     private RestTemplate trainingServiceRestTemplate;
+    private Retry userServiceRetry;
 
     @GetMapping
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
@@ -50,55 +54,56 @@ public class RezervacijaController {
 
     @PostMapping
     public ResponseEntity<RezervacijaDto> addReservation(@RequestBody @Valid RezervacijaCreateDto rezervacijaCreateDto){
-        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
-        ResponseEntity<TreningDto> treningDtoResponseEntity = null;
-        try{
-            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/" + rezervacijaCreateDto.getClient_id() + "/getClient",
-                    HttpMethod.GET,null,ClientDto.class);
-        }
-        catch (HttpClientErrorException e){
-            System.out.println(clientDtoResponseEntity);
+        ClientDto clientDto = null;
 
-            throw new NotFoundException(String.format("Client with this id %d has not been found! ",rezervacijaCreateDto.getClient_id()));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        try{
-            treningDtoResponseEntity = trainingServiceRestTemplate.exchange("/treninzi/" + rezervacijaCreateDto.getTrening_id() + "/getTraining",
-                    HttpMethod.GET,null, TreningDto.class);
-        }
-        catch (HttpClientErrorException e){
-            throw new NotFoundException(String.format("Training with this %d id has not been found! ",rezervacijaCreateDto.getTrening_id()));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        if(treningDtoResponseEntity.getBody().getSala().getKapacitet() == treningDtoResponseEntity.getBody().getBrRezervacija()){
+        clientDto = Retry.decorateSupplier(userServiceRetry,()->getClient(rezervacijaCreateDto.getClient_id())).get();
+        TreningDto treningDto = treningService.findById(rezervacijaCreateDto.getTrening_id());
+
+        if(treningDto.getSala().getKapacitet() == treningDto.getBrRezervacija()){
             return new ResponseEntity<>(HttpStatus.LOCKED);
         }
-        if((clientDtoResponseEntity.getBody().getBrojZakazanihTreninga()+1) % treningDtoResponseEntity.getBody().getSala().getLoyalty() == 0)
+
+        if((clientDto.getBrojZakazanihTreninga()+1) % treningDto.getSala().getLoyalty() == 0)
             rezervacijaCreateDto.setCenaTreninga(0);
         else
-            rezervacijaCreateDto.setCenaTreninga(treningDtoResponseEntity.getBody().getCenaTreninga());
+            rezervacijaCreateDto.setCenaTreninga(treningDto.getCenaTreninga());
 
-
-        rezervacijaCreateDto.setTrening_id(treningDtoResponseEntity.getBody().getId());
-        rezervacijaCreateDto.setClient_id(clientDtoResponseEntity.getBody().getId());
+        rezervacijaCreateDto.setTrening_id(treningDto.getId());
+        rezervacijaCreateDto.setClient_id(clientDto.getId());
 
         if(rezervacijaService.add(rezervacijaCreateDto) == null){
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
 
+        incrementReservations(rezervacijaCreateDto.getClient_id());
+
+
+        return new ResponseEntity<>(rezervacijaService.add(rezervacijaCreateDto),HttpStatus.OK);
+    }
+    private void incrementReservations(Long id){
         try{
-            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/" + rezervacijaCreateDto.getClient_id() + "/addReservation",
+            userServiceRestTemplate.exchange("/client/" + id + "/addReservation",
                     HttpMethod.POST,null,ClientDto.class);
         }
         catch(HttpClientErrorException e){
-            throw new NotFoundException(String.format("Client with id %d has not been found??",rezervacijaCreateDto.getClient_id()));
+            throw new NotFoundException(String.format("Client with id %d has not been found",id));
         }
+    }
+    private ClientDto getClient(Long id){
+        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+        try{
+            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/" + id + "/getClient",
+                    HttpMethod.GET,null,ClientDto.class);
 
-        return new ResponseEntity<>(rezervacijaService.add(rezervacijaCreateDto),HttpStatus.OK);
+            return clientDtoResponseEntity.getBody();
+        }
+        catch (HttpClientErrorException e){
+            throw new NotFoundException(String.format("Client with this id %d has not been found! ",id));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @PutMapping
