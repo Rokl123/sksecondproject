@@ -13,7 +13,7 @@ public class RetryConfiguration {
 
     @Bean
     public Retry userServiceRetry(){
-        RetryConfig retryConfig = RetryConfig.custom().maxAttempts(5).waitDuration(Duration.ofMillis(5000)).build();
+        RetryConfig retryConfig = RetryConfig.custom().maxAttempts(10).waitDuration(Duration.ofMillis(5000)).build();
         RetryRegistry retryRegistry = RetryRegistry.of(retryConfig);
 
         return retryRegistry.retry("userServiceRetry");

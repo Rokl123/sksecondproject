@@ -33,10 +33,7 @@ import static org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder.decode;
 public class RezervacijaController {
 
     private RezervacijaService rezervacijaService;
-    private TreningService treningService;
-    private RestTemplate userServiceRestTemplate;
-    private RestTemplate trainingServiceRestTemplate;
-    private Retry userServiceRetry;
+
 
     @GetMapping
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
@@ -52,59 +49,16 @@ public class RezervacijaController {
         return new ResponseEntity<>(rezervacijaService.findByClientId(pageable,clientId), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping // TODO: uradi da se dobija client_id(iz sesije?) kao i trening_id (ovo ces dobijati tek kad uradimo GUI)
     public ResponseEntity<RezervacijaDto> addReservation(@RequestBody @Valid RezervacijaCreateDto rezervacijaCreateDto){
-        ClientDto clientDto = null;
-
-        clientDto = Retry.decorateSupplier(userServiceRetry,()->getClient(rezervacijaCreateDto.getClient_id())).get();
-        TreningDto treningDto = treningService.findById(rezervacijaCreateDto.getTrening_id());
-
-        if(treningDto.getSala().getKapacitet() == treningDto.getBrRezervacija()){
-            return new ResponseEntity<>(HttpStatus.LOCKED);
-        }
-
-        if((clientDto.getBrojZakazanihTreninga()+1) % treningDto.getSala().getLoyalty() == 0)
-            rezervacijaCreateDto.setCenaTreninga(0);
-        else
-            rezervacijaCreateDto.setCenaTreninga(treningDto.getCenaTreninga());
-
-        rezervacijaCreateDto.setTrening_id(treningDto.getId());
-        rezervacijaCreateDto.setClient_id(clientDto.getId());
-
         if(rezervacijaService.add(rezervacijaCreateDto) == null){
-            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(null,HttpStatus.FORBIDDEN);
         }
-
-        incrementReservations(rezervacijaCreateDto.getClient_id());
-
 
         return new ResponseEntity<>(rezervacijaService.add(rezervacijaCreateDto),HttpStatus.OK);
     }
-    private void incrementReservations(Long id){
-        try{
-            userServiceRestTemplate.exchange("/client/" + id + "/addReservation",
-                    HttpMethod.POST,null,ClientDto.class);
-        }
-        catch(HttpClientErrorException e){
-            throw new NotFoundException(String.format("Client with id %d has not been found",id));
-        }
-    }
-    private ClientDto getClient(Long id){
-        ResponseEntity<ClientDto> clientDtoResponseEntity = null;
-        try{
-            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/" + id + "/getClient",
-                    HttpMethod.GET,null,ClientDto.class);
 
-            return clientDtoResponseEntity.getBody();
-        }
-        catch (HttpClientErrorException e){
-            throw new NotFoundException(String.format("Client with this id %d has not been found! ",id));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
     @PutMapping
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT"})
