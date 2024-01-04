@@ -39,23 +39,24 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
         return notifikacijaMapper.notifikacijaToDto(notifikacija);
     }
 
-    @Async
     @Override
-    public void posaljiAktivacioniImejl(Notifikacija notifikacija) {
+    public void posaljiAktivacioniImejl(Notifikacija notifikacija,Long id) {
         String subject = String.valueOf(notifikacija.getTipNotifikacije());//Aktivacioni emial
         ResponseEntity<ClientDto> clientDtoResponseEntity = null;
+        ClientDto clientDto = null;
         try{
-            clientDtoResponseEntity = userServiceRestTemplate.exchange("/client/", HttpMethod.GET,null, ClientDto.class);
+            clientDtoResponseEntity = userServiceRestTemplate.exchange(id + "/getClient", HttpMethod.GET,null, ClientDto.class);
+
+            clientDto = clientDtoResponseEntity.getBody();
+
         } catch (HttpClientErrorException e){
             if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
-                throw new NotFoundException(String.format("Client with id: %d not found. notifikacija.getClientId()"));
+                throw new NotFoundException(String.format("Client with id: %d not found.",id));
         }
         catch (Exception e){
             e.printStackTrace();
         }
-        String messageBody = String.format("Pozdrav, "+clientDtoResponseEntity.getBody().getFirstName() + clientDtoResponseEntity.getBody().getLastName() +" Za verifikaciju posetite sledeći link: %s", notifikacija.getLink());
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail() , subject, messageBody));
-        notificationRepository.save(notifikacija);
+       // String messageBody = String.format("Pozdrav, "+clientDto.getFirstName() + clientDto.getLastName() +" Za verifikaciju posetite sledeći link: %s", notifikacija.getLink());
     }
     @Async
     @Override
@@ -72,8 +73,7 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
             e.printStackTrace();
         }
         String messageBody = String.format("Pozdrav, "+clientDtoResponseEntity.getBody().getFirstName() + clientDtoResponseEntity.getBody().getLastName() + " Za promenu lozinke posetite sledeći link: %s", notifikacija.getLink());
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, messageBody));
-        notificationRepository.save(notifikacija);
+
     }
     @Async
     @Override

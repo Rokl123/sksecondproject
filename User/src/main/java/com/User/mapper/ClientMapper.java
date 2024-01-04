@@ -23,7 +23,7 @@ public class ClientMapper {
         clientDto.setLastName(client.getPrezime());
         clientDto.setUsername(client.getUsername());
         clientDto.setDatumRodjenja(client.getDatumRodjenja());
-        clientDto.setBanovan(client.isIsBanovan());
+        client.setIsBanovan(client.isIsBanovan());
         clientDto.setBrojZakazanihTreninga(client.getBrojZakazanihTreninga());
         clientDto.setBrojClanskeKartice(client.getBrojClanskeKartice());
         clientDto.setManager(client.getManager());

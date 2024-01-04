@@ -4,6 +4,7 @@ import com.Notifications.domain.Notifikacija;
 import com.Notifications.dto.*;
 import com.Notifications.security.CheckSecurity;
 import com.Notifications.service.NotifikacijaService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,10 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/notifications")
+@AllArgsConstructor
 public class NotificationController {
 
     private final NotifikacijaService notificationService;
-
-    public NotificationController(NotifikacijaService notificationService) {
-        this.notificationService = notificationService;
-    }
 
     @PostMapping
     @CheckSecurity(roles={"ROLE_ADMIN"})
@@ -27,9 +25,9 @@ public class NotificationController {
 
     }
 
-    @PostMapping("/send-activation-email")
-    public ResponseEntity<String> sendActivationEmail(@RequestBody Notifikacija notifikacija) {
-        notificationService.posaljiAktivacioniImejl(notifikacija);
+    @PostMapping("/{id}/send-activation-email")
+    public ResponseEntity<String> sendActivationEmail(@RequestBody Notifikacija notifikacija,@PathVariable("id") Long id) {
+        notificationService.posaljiAktivacioniImejl(notifikacija,id);
         return ResponseEntity.ok("Activation email sent successfully.");
     }
 

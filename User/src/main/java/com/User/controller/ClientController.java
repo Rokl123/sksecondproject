@@ -5,28 +5,35 @@ import com.User.dto.ClientCreateDto;
 import com.User.dto.ClientDto;
 import com.User.dto.TokenRequestDto;
 import com.User.dto.TokenResponseDto;
+import com.User.listener.helper.MessageHelper;
 import com.User.security.CheckSecurity;
 import com.User.domain.Client;
 import com.User.service.ClientService;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/client/")
 @CrossOrigin(origins = "http://localhost:4200")
+@AllArgsConstructor
 public class ClientController {
     private ClientService clientService;
 
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
-    }
+    @Value("${destination.sendEmails}")
+    private String destination;
 
+    private MessageHelper messageHelper;
+
+    private JmsTemplate jmsTemplate;
 
     @CheckSecurity(roles = {"ROLE_CLIENTS"})
     @GetMapping("/getAllClient")
@@ -43,16 +50,20 @@ public class ClientController {
     }
 
     @PostMapping("/{id}/addReservation")
-    @CheckSecurity(roles = "ROLE_ADMIN")
+    @CheckSecurity(roles = {"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
     public ResponseEntity<ClientDto> addReservation(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
 
         return new ResponseEntity<>(clientService.addReservation(id),HttpStatus.OK);
     }
 
 
-    @PostMapping("/saveClient")
+    @PostMapping("/registerClient")
     public ResponseEntity<ClientDto> saveClient(@RequestBody @Valid ClientCreateDto clientCreateDto) {
-        return new ResponseEntity<>(clientService.add(clientCreateDto), HttpStatus.CREATED);
+       ClientDto clientDto= clientService.add(clientCreateDto);
+
+       jmsTemplate.convertAndSend(destination,messageHelper.createTextMessage(clientDto));
+
+       return new ResponseEntity<>(clientDto, HttpStatus.CREATED);
     }
 
 
@@ -63,9 +74,10 @@ public class ClientController {
 
 
     @PutMapping("/{clientId}")
-    public ResponseEntity<String> updateProfile(@PathVariable Long clientId, @RequestBody Client updatedClient) {
+    public ResponseEntity<String> updateProfile(@PathVariable("clientId") Long clientId, @RequestBody Client updatedClient) {
         clientService.updateProfile(Long.valueOf(clientId), updatedClient);
 
         return ResponseEntity.ok("Profile updated successfully.");
     }
+
 }

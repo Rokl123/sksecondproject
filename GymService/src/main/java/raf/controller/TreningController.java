@@ -48,6 +48,7 @@ public class TreningController {
     @CheckSecurity(roles="ROLE_ADMIN")
     public ResponseEntity<TreningDto> deleteTraining(@RequestBody TreningUpdateDto treningUpdateDto){
         treningService.deleteById(treningUpdateDto);
+            // TODO make notification for deleting(cancelling) training session
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

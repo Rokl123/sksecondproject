@@ -13,27 +13,22 @@ import com.User.security.service.TokenService;
 import com.User.service.ClientService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 @Service
+@AllArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
     private TokenService tokenService;
     private ClientRepository clientRepository;
     private ClientMapper clientMapper;
-
-    public ClientServiceImpl(TokenService tokenService, ClientRepository clientRepository, ClientMapper clientMapper) {
-        this.tokenService = tokenService;
-        this.clientRepository = clientRepository;
-        this.clientMapper = clientMapper;
-    }
-
     @Override
     public Page<ClientDto> findAll(Pageable pageable) {
         return clientRepository.findAll(pageable)
                 .map(entity -> {
-                    if (entity instanceof Client) {
+                    if (entity != null) {
                         return clientMapper.clientToClientDto(entity);
                     }
                     throw new NotFoundException("Expected Client entity but found different entity type.");

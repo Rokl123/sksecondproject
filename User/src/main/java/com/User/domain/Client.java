@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 public class Client extends User{
     private Integer brojZakazanihTreninga=0;
-    private Integer brojClanskeKartice;
+    private String brojClanskeKartice;
     private boolean IsBanovan = false;
 
     @ManyToOne

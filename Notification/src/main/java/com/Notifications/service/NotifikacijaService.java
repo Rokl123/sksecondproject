@@ -10,7 +10,7 @@ public interface NotifikacijaService {
 
     NotifikacijaDto add(NotifikacijeCreateDto notifikacijeCreateDto);
 
-    void posaljiAktivacioniImejl(Notifikacija notifikacija);
+    void posaljiAktivacioniImejl(Notifikacija notifikacija,Long id);
 
     void posaljiImejlZaPromenuLozinke(Notifikacija notifikacija);
 

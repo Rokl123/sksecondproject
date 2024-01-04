@@ -19,7 +19,7 @@ public class UserServiceConfiguration {
     @Bean
     public RestTemplate userServiceRestTemplate(){
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:8081/api"));
+        restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:8888/api/client"));
         restTemplate.setInterceptors(Collections.singletonList(new TokenIntereceptor()));
 
         return restTemplate;

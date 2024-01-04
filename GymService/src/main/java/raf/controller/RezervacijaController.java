@@ -7,6 +7,7 @@ import io.github.resilience4j.retry.Retry;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
@@ -25,6 +26,9 @@ import raf.service.RezervacijaService;
 import raf.service.TreningService;
 import raf.userservice.ClientDto;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 import static org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder.decode;
 
 @RestController
@@ -35,6 +39,7 @@ public class RezervacijaController {
     private RezervacijaService rezervacijaService;
 
 
+
     @GetMapping
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
     public ResponseEntity<Page<RezervacijaDto>> getAllRezervacije(@RequestHeader("Authorization") String authorization, Pageable pageable){
@@ -43,17 +48,22 @@ public class RezervacijaController {
     @GetMapping("/client")
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT"})
     public ResponseEntity<Page<RezervacijaDto>> getAllRezervacijeClient(@RequestHeader("Authorization") String authorization, Pageable pageable){
-        String[] parts = authorization.split("\\.");
-        JSONObject jsonObject = new JSONObject(decode(parts[1]));
+        String[] parts = authorization.split(" ");
+        String[] keyParts = parts[1].split("\\.");
+        byte[] decodedPayload = Base64.getDecoder().decode(keyParts[1]);
+        String decodedStr = new String(decodedPayload, StandardCharsets.UTF_8);
+        JSONObject jsonObject = new JSONObject(decodedStr);
         Long clientId = jsonObject.getLong("id");
         return new ResponseEntity<>(rezervacijaService.findByClientId(pageable,clientId), HttpStatus.OK);
     }
 
     @PostMapping // TODO: uradi da se dobija client_id(iz sesije?) kao i trening_id (ovo ces dobijati tek kad uradimo GUI)
-    public ResponseEntity<RezervacijaDto> addReservation(@RequestBody @Valid RezervacijaCreateDto rezervacijaCreateDto){
+    public ResponseEntity<RezervacijaDto> addReservation(@RequestHeader("Authorization") String authorization,@RequestBody @Valid RezervacijaCreateDto rezervacijaCreateDto){
         if(rezervacijaService.add(rezervacijaCreateDto) == null){
             return new ResponseEntity<>(null,HttpStatus.FORBIDDEN);
         }
+
+
 
         return new ResponseEntity<>(rezervacijaService.add(rezervacijaCreateDto),HttpStatus.OK);
     }

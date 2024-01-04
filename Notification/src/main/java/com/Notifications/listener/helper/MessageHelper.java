@@ -2,6 +2,7 @@ package com.Notifications.listener.helper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.jms.JMSException;
@@ -14,28 +15,19 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
+@AllArgsConstructor
 public class MessageHelper {
 
     private Validator validator;
     private ObjectMapper objectMapper;
 
-    public MessageHelper(Validator validator, ObjectMapper objectMapper) {
-        this.validator = validator;
-        this.objectMapper = objectMapper;
-    }
 
     public <T> T getMessage(Message message, Class<T> clazz) throws RuntimeException, JMSException {
         try {
             String json = ((TextMessage) message).getText();
             T data = objectMapper.readValue(json, clazz);
 
-            Set<ConstraintViolation<T>> violations = validator.validate(data);
-            if (violations.isEmpty()) {
-                return data;
-            }
-
-            printViolationsAndThrowException(violations);
-            return null;
+            return data;
         } catch (IOException exception) {
             throw new RuntimeException("Message parsing fails.", exception);
         }
