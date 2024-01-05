@@ -9,6 +9,7 @@ import raf.domain.Rezervacija;
 import raf.domain.TipTreninga;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -31,7 +32,7 @@ public class TreningCreateDto {
 
     private boolean grupni;
 
-    private Date terminTreninga;
+    private LocalDate terminTreninga;
 
     private LocalTime pocetakTermina;
 

@@ -55,4 +55,13 @@ public class ManagerServiceImpl implements ManagerService {
         //Generate token
         return new TokenResponseDto(tokenService.generate(claims));
     }
+
+    @Override
+    public ManagerDto findById(Long id) {
+        Manager  manager = managerRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        ManagerDto managerDto = managerMapper.managerToManagerDto(manager);
+
+        return managerDto;
+    }
 }

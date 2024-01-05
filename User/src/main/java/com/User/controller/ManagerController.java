@@ -29,10 +29,17 @@ public class ManagerController {
     public ResponseEntity<Page<ManagerDto>> getAllMangers(@RequestHeader("Authorization") String authorization,
                                                           Pageable pageable) {
 
-
-
         return new ResponseEntity<>(managerService.findAll(pageable), HttpStatus.OK);
     }
+
+    @GetMapping("{id}/getManager")
+    @CheckSecurity (roles={"ROLE_ADMIN"})
+    public ResponseEntity<ManagerDto> getManager(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
+
+
+        return new ResponseEntity<>(managerService.findById(id),HttpStatus.OK);
+    }
+
 
 
     @PostMapping

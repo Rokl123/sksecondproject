@@ -2,10 +2,7 @@ package com.User.service.impl;
 
 
 import com.User.domain.Client;
-import com.User.dto.ClientCreateDto;
-import com.User.dto.ClientDto;
-import com.User.dto.TokenRequestDto;
-import com.User.dto.TokenResponseDto;
+import com.User.dto.*;
 import com.User.exception.NotFoundException;
 import com.User.mapper.ClientMapper;
 import com.User.repository.ClientRepository;
@@ -66,26 +63,17 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void updateProfile(Long id, Client updatedProfile) {
-        Client existingUser = clientRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Client not found"));
+    public void updateProfile(Long id, ClientUpdateDto updatedProfile) {
+        Client client = clientRepository.findById(id).orElseThrow(RuntimeException::new);
 
-        if (existingUser instanceof Client) {
-            Client updatedClientProfile = (Client) updatedProfile;
+        client.setUsername(updatedProfile.getUsername());
+        client.setPassword(updatedProfile.getPassword());
+        client.setEmail(updatedProfile.getEmail());
+        client.setIme(updatedProfile.getIme());
+        client.setPrezime(updatedProfile.getPrezime());
 
-            Client existingClient = (Client) existingUser;
-            existingClient.setUsername(updatedClientProfile.getUsername());
-            existingClient.setPassword(updatedClientProfile.getPassword());
-            existingClient.setEmail(updatedClientProfile.getEmail());
-            existingClient.setDatumRodjenja(updatedClientProfile.getDatumRodjenja());
-            existingClient.setIme(updatedClientProfile.getIme());
-            existingClient.setPrezime(updatedClientProfile.getPrezime());
 
-            // Čuvanje promena u bazi podataka
-            clientRepository.save(existingClient);
-        } else {
-            throw new IllegalArgumentException("Cannot update profile: User is not a Client");
-        }
+        clientRepository.save(client);
     }
 
     @Override

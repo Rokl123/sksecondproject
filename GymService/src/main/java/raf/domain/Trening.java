@@ -39,7 +39,7 @@ public class Trening {
     @NotNull
     private boolean grupni = true;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date terminTreninga;
+    private LocalDate terminTreninga;
 
     private LocalTime pocetakTermina;
 

@@ -22,11 +22,14 @@ import raf.domain.Trening;
 import raf.dto.*;
 import raf.listener.helper.MessageHelper;
 import raf.mapper.RezervacijaMapper;
+import raf.mapper.TreningMapper;
 import raf.repository.RezervacijaRepository;
 import raf.repository.TreningRepository;
 import raf.service.RezervacijaService;
 import raf.service.TreningService;
 import raf.userservice.ClientDto;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -38,8 +41,6 @@ public class RezervacijaServiceImpl implements RezervacijaService {
 
     private TreningRepository treningRepository;
 
-    private TreningService treningService;
-
     private JmsTemplate jmsTemplate;
 
     private MessageHelper messageHelper;
@@ -50,6 +51,10 @@ public class RezervacijaServiceImpl implements RezervacijaService {
 
     @Value("${destination.incrementReservation}")
     private String destination;
+    @Value("${destination.cancelledReservation}")
+    private String destination2;
+    @Value("${destination.cancelledTraining}")
+    private String destination3;
 
     @Override
     public Page<RezervacijaDto> findAll(Pageable pageable) {
@@ -127,7 +132,49 @@ public class RezervacijaServiceImpl implements RezervacijaService {
     }
 
     @Override
-    public void deleteById(RezervacijaUpdateDto rezervacijaUpdateDto) {
-        rezervacijaRepository.deleteById(rezervacijaUpdateDto.getId());
+    public void deleteByRezervisaniTrening(Trening trening) {
+
+        List<Rezervacija> rezervacije =rezervacijaRepository.findAllByRezervisaniTrening(trening);
+
+        for (Rezervacija rezervacija : rezervacije) {
+            rezervacijaRepository.deleteById(rezervacija.getRezervacija_id());
+
+            ClientDto clientDto = null;
+
+            clientDto = Retry.decorateSupplier(userServiceRetry, () -> getClient(rezervacija.getClientID())).get();
+
+            jmsTemplate.convertAndSend(destination3,messageHelper.createTextMessage(clientDto));
+
+        }
+
+
+    }
+
+    @Override
+    public void deleteById(Long id) { // od strane menadzera il admina
+
+        Rezervacija rezervacija = rezervacijaRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        Trening trening = rezervacija.getRezervisaniTrening();
+
+        trening.setBrRezervacija(trening.getBrRezervacija()-1);
+
+        jmsTemplate.convertAndSend(destination2,messageHelper.createTextMessage(id));
+
+        rezervacijaRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteByIdClient(Long id, Long resid) { // od strane menadzera ili klijenta ili admina
+
+        Rezervacija rezervacija = rezervacijaRepository.findById(resid).orElseThrow(RuntimeException::new);
+
+        Trening trening = rezervacija.getRezervisaniTrening();
+
+        trening.setBrRezervacija(trening.getBrRezervacija()-1);
+
+        jmsTemplate.convertAndSend(destination2,messageHelper.createTextMessage(id));
+
+        rezervacijaRepository.deleteById(id);
     }
 }

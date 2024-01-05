@@ -24,19 +24,28 @@ public class TestDataRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         TipNotifikacije tipNotifikacije = new TipNotifikacije();
         tipNotifikacije.setNaziv("Aktivacioni email");
-        tipNotifikacije.setId(Long.valueOf(1));
 
         TipNotifikacije tipNotifikacije1 = new TipNotifikacije();
         tipNotifikacije1.setNaziv("Promena lozinke");
-        tipNotifikacije1.setId(Long.valueOf(2));
 
         TipNotifikacije tipNotifikacije2 = new TipNotifikacije();
         tipNotifikacije2.setNaziv("Zakazivanje treninga");
-        tipNotifikacije2.setId(Long.valueOf(3));
+
+        TipNotifikacije tipNotifikacije3 = new TipNotifikacije();
+        tipNotifikacije3.setNaziv("Otkazivanje rezervacije za trening");
+
+        TipNotifikacije tipNotifikacije4 = new TipNotifikacije();
+        tipNotifikacije4.setNaziv("Otkazivanje treninga");
+
+        TipNotifikacije tipNotifikacije5 = new TipNotifikacije();
+        tipNotifikacije4.setNaziv("Azuriranje profila");
 
         notificationTypeRepository.save(tipNotifikacije);
         notificationTypeRepository.save(tipNotifikacije1);
         notificationTypeRepository.save(tipNotifikacije2);
+        notificationTypeRepository.save(tipNotifikacije3);
+        notificationTypeRepository.save(tipNotifikacije4);
+        notificationTypeRepository.save(tipNotifikacije5);
 
         Notifikacija notifikacija = new Notifikacija();
         notifikacija.setId(Long.valueOf(1));

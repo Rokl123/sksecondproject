@@ -13,4 +13,7 @@ public interface ManagerService {
     ManagerDto add(ManagerCreateDto managerCreateDto);
 
     TokenResponseDto login(TokenRequestDto tokenRequestDto);
+
+    ManagerDto findById(Long id);
+
 }

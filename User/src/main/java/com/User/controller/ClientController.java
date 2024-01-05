@@ -1,10 +1,7 @@
 package com.User.controller;
 
 
-import com.User.dto.ClientCreateDto;
-import com.User.dto.ClientDto;
-import com.User.dto.TokenRequestDto;
-import com.User.dto.TokenResponseDto;
+import com.User.dto.*;
 import com.User.listener.helper.MessageHelper;
 import com.User.security.CheckSecurity;
 import com.User.domain.Client;
@@ -42,7 +39,7 @@ public class ClientController {
 
         return new ResponseEntity<>(clientService.findAll(pageable), HttpStatus.OK);
     }
-    @GetMapping("/{id}/getClient")
+    @GetMapping("{id}/getClient")
     @CheckSecurity(roles = {"ROLE_ADMIN"})
     public ResponseEntity<ClientDto> getAClientById(@RequestHeader("Authorization") String authorization,@PathVariable("id") Long id){
 
@@ -74,7 +71,7 @@ public class ClientController {
 
 
     @PutMapping("/{clientId}")
-    public ResponseEntity<String> updateProfile(@PathVariable("clientId") Long clientId, @RequestBody Client updatedClient) {
+    public ResponseEntity<String> updateProfile(@PathVariable("clientId") Long clientId, @RequestBody ClientUpdateDto updatedClient) {
         clientService.updateProfile(Long.valueOf(clientId), updatedClient);
 
         return ResponseEntity.ok("Profile updated successfully.");

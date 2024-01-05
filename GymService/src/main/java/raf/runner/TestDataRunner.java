@@ -10,6 +10,7 @@ import raf.repository.FiskulturnaSalaRepository;
 import raf.repository.TipTreningaRepository;
 import raf.repository.TreningRepository;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -49,7 +50,7 @@ public class TestDataRunner implements CommandLineRunner {
         trening.setSala(fiskulturnaSala);
         trening.setTip(tipTreninga1);
         trening.setGrupni(true);
-        trening.setTerminTreninga(new Date(2024,1,15));
+        trening.setTerminTreninga(LocalDate.of(2024,1,15));
         trening.setPocetakTermina(LocalTime.of(15,15));
         trening.setKrajTermina(LocalTime.of(17,15));
         trening.setCenaTreninga(1500);
@@ -58,7 +59,7 @@ public class TestDataRunner implements CommandLineRunner {
         trening1.setSala(fiskulturnaSala);
         trening1.setTip(tipTreninga2);
         trening1.setGrupni(true);
-        trening1.setTerminTreninga(new Date(2024,1,15));
+        trening1.setTerminTreninga(LocalDate.of(2024,1,15));
         trening1.setPocetakTermina(LocalTime.of(15,15));
         trening1.setKrajTermina(LocalTime.of(16,15));
         trening1.setCenaTreninga(1300);

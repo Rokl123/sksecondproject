@@ -2,6 +2,8 @@ package raf.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 @Getter
@@ -12,7 +14,7 @@ public class TreningUpdateDto {
 
     private int cenaTreninga;
 
-    private Date datum;
+    private LocalDate datum;
 
     private LocalTime pocetakTermina;
 

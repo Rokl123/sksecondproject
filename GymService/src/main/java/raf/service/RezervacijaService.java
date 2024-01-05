@@ -2,6 +2,7 @@ package raf.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import raf.domain.Trening;
 import raf.dto.RezervacijaCreateDto;
 import raf.dto.RezervacijaDto;
 import raf.dto.RezervacijaUpdateDto;
@@ -16,5 +17,9 @@ public interface RezervacijaService {
 
     RezervacijaDto update(RezervacijaUpdateDto rezervacijaUpdateDto);
 
-    void deleteById(RezervacijaUpdateDto rezervacijaUpdateDto); //delete
+    void deleteByRezervisaniTrening(Trening trening);
+
+    void deleteById(Long id); //delete
+
+    void deleteByIdClient(Long id,Long resid); //delete
 }

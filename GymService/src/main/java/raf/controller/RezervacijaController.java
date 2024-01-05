@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +22,7 @@ import raf.dto.RezervacijaCreateDto;
 import raf.dto.RezervacijaDto;
 import raf.dto.RezervacijaUpdateDto;
 import raf.dto.TreningDto;
+import raf.listener.helper.MessageHelper;
 import raf.security.CheckSecurity;
 import raf.service.RezervacijaService;
 import raf.service.TreningService;
@@ -37,8 +39,6 @@ import static org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder.decode;
 public class RezervacijaController {
 
     private RezervacijaService rezervacijaService;
-
-
 
     @GetMapping
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
@@ -76,19 +76,22 @@ public class RezervacijaController {
         return new ResponseEntity<>(rezervacijaService.update(rezervacijaUpdateDto),HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{reservationid}")
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
-    public ResponseEntity deleteReservation(@RequestHeader("Authorization") String authorization,RezervacijaUpdateDto rezervacijaUpdateDto){
-        rezervacijaService.deleteById(rezervacijaUpdateDto);
+    public ResponseEntity deleteReservation(@RequestHeader("Authorization") String authorization,@PathVariable("reservationid") Long id){ //id rezervacije koju dobijamo kada kliknemo na rezervaciju koju otkazujemo
+
+        rezervacijaService.deleteById(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/client")
+    @DeleteMapping("/client/{id}/{resid}")
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT"})
-    public ResponseEntity deleteReservationClient(@RequestHeader("Authorization") String authorization,RezervacijaUpdateDto rezervacijaUpdateDto){
+    public ResponseEntity<Void> deleteReservationClient(@RequestHeader("Authorization") String authorization,@PathVariable Long id,
+    @PathVariable("resid") Long resid){ //clientId
 
-        rezervacijaService.deleteById(rezervacijaUpdateDto);
+        rezervacijaService.deleteByIdClient(id,resid);
+
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

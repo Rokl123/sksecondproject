@@ -15,6 +15,6 @@ public interface TreningService {
 
     TreningDto update(TreningUpdateDto treningUpdateDto); //update
 
-    void deleteById(TreningUpdateDto treningUpdateDto); //delete
+    void deleteById(Long trening_id); //delete
 
 }

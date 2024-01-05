@@ -52,6 +52,7 @@ public class TestDataRunner implements CommandLineRunner {
         //User statuses
         Manager manager = new Manager();
         manager.setIme("Arsenije");
+        manager.setEmail("panteon566@gmail.com");
         manager.setRole(roleManager);
         manager.setNazivFisSale("Ahilej");
         manager.setUsername("Rokl123");

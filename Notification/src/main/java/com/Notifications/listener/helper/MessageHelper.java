@@ -21,7 +21,6 @@ public class MessageHelper {
     private Validator validator;
     private ObjectMapper objectMapper;
 
-
     public <T> T getMessage(Message message, Class<T> clazz) throws RuntimeException, JMSException {
         try {
             String json = ((TextMessage) message).getText();

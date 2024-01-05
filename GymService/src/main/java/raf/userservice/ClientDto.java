@@ -18,4 +18,6 @@ public class ClientDto {
 
     private Manager manager;
 
+    private String email;
+
 }

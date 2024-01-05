@@ -14,7 +14,4 @@ public class TipNotifikacije {
     private Long id;
     private String naziv;
 
-
-
-
 }

@@ -2,6 +2,7 @@ package raf.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -44,11 +45,11 @@ public class TreningController {
         return new ResponseEntity<>(treningService.update(treningUpdateDto),HttpStatus.OK);
     }
 
-    @DeleteMapping
-    @CheckSecurity(roles="ROLE_ADMIN")
-    public ResponseEntity<TreningDto> deleteTraining(@RequestBody TreningUpdateDto treningUpdateDto){
-        treningService.deleteById(treningUpdateDto);
-            // TODO make notification for deleting(cancelling) training session
+    @DeleteMapping("/{trening_id}")
+    @CheckSecurity(roles= {"ROLE_ADMIN","ROLE_MANAGER"})
+    public ResponseEntity<TreningDto> deleteTraining(@RequestHeader("Authorization") String authorization,@PathVariable("trening_id") Long trening_id){
+        treningService.deleteById(trening_id);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
