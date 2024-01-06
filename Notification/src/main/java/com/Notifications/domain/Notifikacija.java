@@ -1,10 +1,11 @@
 package com.Notifications.domain;
 import com.User.domain.Client;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 @Getter
 @Setter

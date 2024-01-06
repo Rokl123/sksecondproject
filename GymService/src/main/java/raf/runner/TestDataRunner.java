@@ -12,7 +12,6 @@ import raf.repository.TreningRepository;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @AllArgsConstructor
 @Component

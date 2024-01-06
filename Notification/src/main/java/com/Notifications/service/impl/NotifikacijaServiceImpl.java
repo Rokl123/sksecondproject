@@ -27,7 +27,7 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
 
     private NotificationRepository notificationRepository;
     private NotifikacijaMapper notifikacijaMapper;
-    private MessageBrokerServiceImpl messageBrokerService;
+
 
     private RestTemplate userServiceRestTemplate;
     private EmailService emailService;
@@ -92,8 +92,6 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
             e.printStackTrace();
         }
 
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getManager().getEmail(), subject, text));
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, text));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -113,8 +111,6 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
             e.printStackTrace();
         }
 
-        messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, text));
-        messageBrokerService.sendMessage( emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getManager().getEmail(), subject, text));
         notificationRepository.save(notifikacija);
     }
     @Async
@@ -137,7 +133,6 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
             catch (Exception e){
                 e.printStackTrace();
             }
-            messageBrokerService.sendMessage(emailService.sendSimpleMessage(clientDtoResponseEntity.getBody().getEmail(), subject, text));
             notificationRepository.save(notifikacija);
         }
     }

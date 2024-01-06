@@ -1,8 +1,8 @@
 package com.Notifications.dto;
 
 import com.Notifications.domain.TipNotifikacije;
+import jakarta.validation.constraints.NotNull;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Date;
 

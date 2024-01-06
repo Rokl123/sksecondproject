@@ -9,12 +9,12 @@ import com.Notifications.repository.NotificationRepository;
 import com.Notifications.repository.NotificationTypeRepository;
 import com.Notifications.service.EmailService;
 import com.Notifications.service.NotifikacijaService;
+import jakarta.jms.JMSException;
 import lombok.AllArgsConstructor;
+import org.apache.activemq.Message;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
 import java.time.LocalDateTime;
 
 @Component

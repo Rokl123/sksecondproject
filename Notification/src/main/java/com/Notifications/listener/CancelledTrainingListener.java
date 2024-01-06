@@ -8,7 +8,9 @@ import com.Notifications.repository.NotificationTypeRepository;
 import com.Notifications.service.EmailService;
 import com.User.domain.Manager;
 import com.User.dto.ManagerDto;
+import jakarta.jms.JMSException;
 import lombok.AllArgsConstructor;
+import org.apache.activemq.Message;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jms.JmsException;
@@ -17,8 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
+
 import java.time.LocalDateTime;
 
 @Component

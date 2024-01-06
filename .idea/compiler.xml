@@ -7,14 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="GymGateway" />
         <module name="GymService" />
-        <module name="Notifications" />
+        <module name="GymEurekaService" />
         <module name="User" />
+        <module name="Notifications" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ApiGateway" target="18" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="GymEurekaService" options="-parameters" />
+      <module name="GymGateway" options="-parameters" />
       <module name="GymService" options="-parameters" />
       <module name="Notifications" options="-parameters" />
       <module name="User" options="-parameters" />
