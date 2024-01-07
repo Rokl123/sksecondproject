@@ -20,5 +20,5 @@ public class Manager extends User{
     @OneToMany(mappedBy = "manager")
     private List<Client> clients;
 
-
+    private Long sala_id;
 }
