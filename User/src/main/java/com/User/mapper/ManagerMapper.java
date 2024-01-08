@@ -54,6 +54,7 @@ public class ManagerMapper {
         manager.setPassword(managerCreateDto.getPassword());
         manager.setDatumRodjenja(managerCreateDto.getDatumRodjenja());
         manager.setRole(roleRepository.findRoleByName("ROLE_MANAGER").get());
+        manager.setIsBanovan(true);
         return manager;
     }
 }
