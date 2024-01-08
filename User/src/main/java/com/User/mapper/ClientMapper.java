@@ -40,7 +40,6 @@ public class ClientMapper {
         client.setPassword(clientCreateDto.getPassword());
         client.setDatumRodjenja(clientCreateDto.getDatumRodjenja());
         client.setRole(roleRepository.findRoleByName("ROLE_CLIENT").get());
-        client.setIsBanovan(clientCreateDto.getIsBanovan());
 //        client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
 //        client.setBrojZakazanihTreninga(clientCreateDto.getBrojZakazanihTreninga());
 //        client.setManager(clientCreateDto.getManager());

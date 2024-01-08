@@ -65,6 +65,7 @@ public class TestDataRunner implements CommandLineRunner {
         manager.setPrezime("Petrovic");
         manager.setDatumZaposljavanja(new Date(122, 0, 8));
         manager.setDatumRodjenja(new Date(102, 5, 21));
+        manager.setIsBanovan(false);
 
         // Kreiranje prvog menadžera
         Manager manager1 = new Manager();
@@ -77,6 +78,7 @@ public class TestDataRunner implements CommandLineRunner {
         manager1.setPrezime("Milosevic");
         manager1.setDatumZaposljavanja(new Date(122, 0, 8));
         manager1.setDatumRodjenja(new Date(102, 5, 21));
+        manager1.setIsBanovan(false);
 
 // Kreiranje prvog klijenta
         Client client1 = new Client();
@@ -90,6 +92,7 @@ public class TestDataRunner implements CommandLineRunner {
         client1.setDatumRodjenja(new Date(102, 2, 3));
         manager1.setClients(List.of(client1));
         client1.setManager(manager1);
+        client1.setIsBanovan(false);
 
         Manager manager2 = new Manager();
         manager2.setIme("Nikola");
@@ -101,6 +104,7 @@ public class TestDataRunner implements CommandLineRunner {
         manager2.setPrezime("Nikolic");
         manager2.setDatumZaposljavanja(new Date(122, 0, 8));
         manager2.setDatumRodjenja(new Date(102, 5, 21));
+        manager2.setIsBanovan(false);
 
         Client client2 = new Client();
         client2.setIme("Jovan");
@@ -113,7 +117,7 @@ public class TestDataRunner implements CommandLineRunner {
         client2.setDatumRodjenja(new Date(102, 2, 3));
         manager2.setClients(List.of(client2));
         client2.setManager(manager2);
-
+        client2.setIsBanovan(false);
 
         Client client = new Client();
         client.setIme("Mihailo");
@@ -123,6 +127,7 @@ public class TestDataRunner implements CommandLineRunner {
         client.setUsername("prota");
         client.setRole(roleClient);
         client.setPassword("1234");
+        client.setIsBanovan(false);
 
         client.setDatumRodjenja(new Date(102, 2, 3));
         manager.setClients(List.of(client));
