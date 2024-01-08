@@ -26,21 +26,21 @@ public class NotificationTypeController {
         return new ResponseEntity<>(tipNotifikacijeService.findAll(pageable), HttpStatus.OK);
     }
 
-    @PostMapping
-    @CheckSecurity(roles={"ROLE_ADMIN"})
+    @PostMapping("/addTypeNoti")
+    //@CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<TipNotifikacijeDto> addNotificationType(@RequestBody TipNotifikacijeCreateDto tipNotifikacijeCreateDto) {
         return new ResponseEntity<>(tipNotifikacijeService.add(tipNotifikacijeCreateDto), HttpStatus.CREATED);
 
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/upadte/{id}")
     @CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<TipNotifikacijeDto> updateNotificationType(@RequestBody TipNotifikacijeDto tipNotifikacijeDto) {
         return new ResponseEntity<>(tipNotifikacijeService.update(tipNotifikacijeDto),HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-//@CheckSecurity(roles={"ROLE_ADMIN"})
+    //@CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<Void> deleteNotificationType(@PathVariable Long id) {
         tipNotifikacijeService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
