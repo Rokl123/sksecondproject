@@ -24,11 +24,9 @@ public class ManagerController {
         this.managerService = managerService;
     }
 
-    @GetMapping
-    @CheckSecurity(roles = {"ROLE_MANAGER"})
-    public ResponseEntity<Page<ManagerDto>> getAllMangers(@RequestHeader("Authorization") String authorization,
-                                                          Pageable pageable) {
-
+    @GetMapping("/getAllManagers")
+    //@CheckSecurity(roles = {"ROLE_MANAGER"})
+    public ResponseEntity<Page<ManagerDto>> getAllMangers(Pageable pageable) {
         return new ResponseEntity<>(managerService.findAll(pageable), HttpStatus.OK);
     }
 
@@ -42,7 +40,7 @@ public class ManagerController {
 
 
 
-    @PostMapping
+    @PostMapping("/registerManager")
     public ResponseEntity<ManagerDto> saveManager(@RequestBody @Valid ManagerCreateDto managerCreateDto) {
         //notifikacija
         return new ResponseEntity<>(managerService.add(managerCreateDto), HttpStatus.CREATED);

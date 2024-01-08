@@ -4,13 +4,13 @@ import com.Notifications.dto.TipNotifikacijeDto;
 import com.Notifications.security.CheckSecurity;
 import com.Notifications.service.TipNotifikacijeService;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
-
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/notification-types")
 public class NotificationTypeController {
     private final TipNotifikacijeService tipNotifikacijeService;
@@ -19,10 +19,10 @@ public class NotificationTypeController {
         this.tipNotifikacijeService = tipNotifikacijeService;
     }
 
-    @GetMapping
-    @CheckSecurity(roles={"ROLE_ADMIN"})
+    @GetMapping("/getAllNotiTypes")
+    //@CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<Page<TipNotifikacijeDto>> getAllNotificationTypes(Pageable pageable) {
-        return new ResponseEntity<>(tipNotifikacijeService.findAll((org.springframework.data.domain.Pageable) pageable), HttpStatus.OK);
+        return new ResponseEntity<>(tipNotifikacijeService.findAll(pageable), HttpStatus.OK);
     }
 
     @PostMapping

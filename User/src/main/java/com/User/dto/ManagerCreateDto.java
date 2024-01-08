@@ -7,11 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 public class ManagerCreateDto extends AdminCreateDto{
-    @NotBlank
     private Date datumZaposljavanja;
-    @NotBlank
     private String nazivFisSale;
-    @NotBlank
     private Boolean isBanovan;
 
     private List<Client> clients;

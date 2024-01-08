@@ -3,6 +3,7 @@ package com.User.domain;
 //import javax.persistence.*;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class Client extends User{
 
     @ManyToOne
     @JoinColumn(name = "manager_id")
+    @JsonIgnoreProperties("clients")
     private Manager manager;
 
 }

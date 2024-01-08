@@ -43,9 +43,8 @@ public class AdminController {
     }
 
 
-    @GetMapping
-    @CheckSecurity(roles = {"ROLE_ADMIN"})
-    public ResponseEntity<Page<AdminDto>> getAllAdmins(@RequestHeader("Authorization") String authorization,
+    @GetMapping("/getAllAdmins")
+    public ResponseEntity<Page<AdminDto>> getAllAdmins(
                                                        Pageable pageable) {
 
         return new ResponseEntity<>(adminService.findAll(pageable), HttpStatus.OK);

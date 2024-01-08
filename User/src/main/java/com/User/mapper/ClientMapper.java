@@ -18,12 +18,14 @@ public class ClientMapper {
     public ClientDto clientToClientDto(Client client) {
         ClientDto clientDto = new ClientDto();
         clientDto.setId(client.getId());
+        clientDto.setRole(client.getRole());
         clientDto.setEmail(client.getEmail());
         clientDto.setFirstName(client.getIme());
         clientDto.setLastName(client.getPrezime());
+        clientDto.setPassword(client.getPassword());
         clientDto.setUsername(client.getUsername());
         clientDto.setDatumRodjenja(client.getDatumRodjenja());
-        client.setIsBanovan(client.isIsBanovan());
+        clientDto.setIsBanovan(client.isIsBanovan());
         clientDto.setBrojZakazanihTreninga(client.getBrojZakazanihTreninga());
         clientDto.setBrojClanskeKartice(client.getBrojClanskeKartice());
         clientDto.setManager(client.getManager());
@@ -38,9 +40,9 @@ public class ClientMapper {
         client.setPassword(clientCreateDto.getPassword());
         client.setDatumRodjenja(clientCreateDto.getDatumRodjenja());
         client.setRole(roleRepository.findRoleByName("ROLE_CLIENT").get());
-        client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
-        client.setBrojZakazanihTreninga(clientCreateDto.getBrojZakazanihTreninga());
-        client.setManager(clientCreateDto.getManager());
+//        client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
+//        client.setBrojZakazanihTreninga(clientCreateDto.getBrojZakazanihTreninga());
+//        client.setManager(clientCreateDto.getManager());
 
         return client;
     }

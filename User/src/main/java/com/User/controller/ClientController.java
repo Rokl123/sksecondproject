@@ -32,11 +32,9 @@ public class ClientController {
 
     private JmsTemplate jmsTemplate;
 
-    @CheckSecurity(roles = {"ROLE_CLIENTS"})
+    //@CheckSecurity(roles = {"ROLE_CLIENTS"})
     @GetMapping("/getAllClient")
-    public ResponseEntity<Page<ClientDto>> getAllClients(@RequestHeader("Authorization") String authorization,
-                                                         Pageable pageable) {
-
+    public ResponseEntity<Page<ClientDto>> getAllClients(Pageable pageable) {
         return new ResponseEntity<>(clientService.findAll(pageable), HttpStatus.OK);
     }
     @GetMapping("{id}/getClient")

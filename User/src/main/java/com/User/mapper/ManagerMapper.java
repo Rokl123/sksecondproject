@@ -9,6 +9,7 @@ import com.User.dto.ManagerDto;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -28,17 +29,19 @@ public class ManagerMapper {
         managerDto.setId(manager.getId());
         managerDto.setEmail(manager.getEmail());
         managerDto.setFirstName(manager.getIme());
+        managerDto.setPassword(manager.getPassword());
+        managerDto.setRole(manager.getRole());
         managerDto.setLastName(manager.getPrezime());
         managerDto.setUsername(manager.getUsername());
         managerDto.setDatumRodjenja(manager.getDatumRodjenja());
         managerDto.setBanovan(manager.getIsBanovan());
         managerDto.setDatumZaposljavanja(manager.getDatumZaposljavanja());
         managerDto.setNazivFisSale(manager.getNazivFisSale());
-        List<Client> client = new ArrayList<>();
-        for (Client client1 : manager.getClients()) {
-            client.add(client1);
-        }
-        managerDto.setClients(client);
+//        List<Client> client = new ArrayList<>();
+//        for (Client client1 : manager.getClients()) {
+//            client.add(client1);
+//        }
+//        managerDto.setClients(manager.getClients());
         return managerDto;
     }
 
@@ -51,18 +54,6 @@ public class ManagerMapper {
         manager.setPassword(managerCreateDto.getPassword());
         manager.setDatumRodjenja(managerCreateDto.getDatumRodjenja());
         manager.setRole(roleRepository.findRoleByName("ROLE_MANAGER").get());
-        manager.setDatumZaposljavanja(managerCreateDto.getDatumZaposljavanja());
-        manager.setNazivFisSale(managerCreateDto.getNazivFisSale());
-        if (managerCreateDto.getClients() != null) {
-            List<Client> clients = new ArrayList<>();
-            for (Client clientId : managerCreateDto.getClients()) {
-                Client client = clientRepository.findById(clientId.getId()).orElse(null);
-                if (client != null) {
-                    clients.add(client);
-                }
-            }
-            manager.setClients(clients);
-        }
         return manager;
     }
 }

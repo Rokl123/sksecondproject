@@ -22,6 +22,8 @@ public class AdminMapper {
         adminDto.setLastName(admin.getPrezime());
         adminDto.setUsername(admin.getUsername());
         adminDto.setDatumRodjenja(admin.getDatumRodjenja());
+        adminDto.setPassword(admin.getPassword());
+        adminDto.setRole(admin.getRole());
         return adminDto;
     }
     public Admin adminCreateDtoToAdmin(AdminCreateDto adminCreateDto) {
@@ -32,6 +34,7 @@ public class AdminMapper {
         admin.setUsername(adminCreateDto.getUsername());
         admin.setPassword(adminCreateDto.getPassword());
         admin.setDatumRodjenja(adminCreateDto.getDatumRodjenja());
+        admin.setPassword(adminCreateDto.getPassword());
         admin.setRole(roleRepository.findRoleByName("ROLE_ADMIN").get());
         return admin;
     }

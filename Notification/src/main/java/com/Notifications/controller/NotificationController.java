@@ -5,6 +5,8 @@ import com.Notifications.dto.*;
 import com.Notifications.security.CheckSecurity;
 import com.Notifications.service.NotifikacijaService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/notifications")
 @AllArgsConstructor
 public class NotificationController {
@@ -23,6 +26,11 @@ public class NotificationController {
     public ResponseEntity<NotifikacijaDto> addNotification(@RequestBody NotifikacijeCreateDto NotifikacijeCreateDto) {
         return new ResponseEntity<>(notificationService.add(NotifikacijeCreateDto), HttpStatus.CREATED);
 
+    }
+    @GetMapping("/getAllNoti")
+    //@CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<Page<NotifikacijaDto>> getAllNotification(Pageable pageable) {
+        return new ResponseEntity<>(notificationService.findAll(pageable), HttpStatus.OK);
     }
 
     @PostMapping("/{id}/send-activation-email")

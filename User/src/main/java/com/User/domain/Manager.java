@@ -1,6 +1,7 @@
 package com.User.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class Manager extends User{
     private Boolean IsBanovan;
     @Column
     @OneToMany(mappedBy = "manager")
+    @JsonIgnoreProperties("manager")
     private List<Client> clients;
 
     private Long sala_id;

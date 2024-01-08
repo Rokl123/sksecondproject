@@ -10,6 +10,8 @@ import com.Notifications.service.NotifikacijaService;
 import com.Notifications.userservice.ClientDto;
 import com.User.exception.NotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +39,11 @@ public class NotifikacijaServiceImpl implements NotifikacijaService {
         Notifikacija notifikacija = notifikacijaMapper.notifikacijaCreateDto(notifikacijeCreateDto);
         notificationRepository.save(notifikacija);
         return notifikacijaMapper.notifikacijaToDto(notifikacija);
+    }
+
+    @Override
+    public Page<NotifikacijaDto> findAll(Pageable pageable) {
+        return notificationRepository.findAll(pageable).map(notifikacijaMapper::notifikacijaToDto);
     }
 
     @Override

@@ -11,10 +11,11 @@ public class NotifikacijaMapper {
     public NotifikacijaDto notifikacijaToDto(Notifikacija notifikacija){
         NotifikacijaDto notifikacijaDto = new NotifikacijaDto();
         notifikacijaDto.setId(notifikacija.getId());
-        notifikacijaDto.setTekst(notifikacijaDto.getTekst());
-        notifikacijaDto.setLink(notifikacijaDto.getLink());
+        notifikacijaDto.setTekst(notifikacija.getText());
+        notifikacijaDto.setLink(notifikacija.getLink());
         notifikacijaDto.setTipNotifikacije(notifikacija.getTipNotifikacije());
         notifikacijaDto.setVremeSlanja(notifikacija.getDatumSlanja());
+        notifikacijaDto.setClinetID(notifikacija.getClientID());
         return notifikacijaDto;
     }
 
@@ -24,6 +25,7 @@ public class NotifikacijaMapper {
         notifikacija.setText(nCDto.getTekst());
         notifikacija.setDatumSlanja(nCDto.getVremeSlanja());
         notifikacija.setTipNotifikacije(nCDto.getTipNotifikacije());
+        notifikacija.setClientID(nCDto.getClientId());
         return notifikacija;
     }
 }

@@ -27,7 +27,7 @@ public class Notifikacija {
     @Column(name = "datum_slanja")
     private LocalDateTime datumSlanja;
 
-
+    private Long clientID;
 //    @ManyToOne
 //    @JoinColumn(name = "client")
 //    private Client client;

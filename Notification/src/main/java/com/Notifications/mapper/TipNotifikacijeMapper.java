@@ -10,8 +10,8 @@ public class TipNotifikacijeMapper {
 
     public TipNotifikacijeDto tipNotifikacijeDto(TipNotifikacije tipNotifikacije){
         TipNotifikacijeDto tipNotifikacijaDto = new TipNotifikacijeDto();
-        tipNotifikacijaDto.setId(tipNotifikacijaDto.getId());
-        tipNotifikacijaDto.setNaziv(tipNotifikacijaDto.getNaziv());
+        tipNotifikacijaDto.setId(tipNotifikacije.getId());
+        tipNotifikacijaDto.setNaziv(tipNotifikacije.getNaziv());
         return tipNotifikacijaDto;
     }
 
