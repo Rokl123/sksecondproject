@@ -9,7 +9,11 @@ public interface ClientService {
     Page<ClientDto> findAll(Pageable pageable);
     ClientDto findById(Long id);
 
+    void activate(Long id);
+
     ClientDto add(ClientCreateDto clientCreateDto);
+
+    String returnAToken(ClientDto clientDto);
 
     TokenResponseDto login(TokenRequestDto tokenRequestDto);
 

@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Client extends User{
     private int brojZakazanihTreninga=0;
     private String brojClanskeKartice;
-    private boolean IsBanovan = false;
+    private boolean IsBanovan;
 
     @ManyToOne
     @JoinColumn(name = "manager_id")

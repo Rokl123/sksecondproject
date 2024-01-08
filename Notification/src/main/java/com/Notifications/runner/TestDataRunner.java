@@ -40,12 +40,16 @@ public class TestDataRunner implements CommandLineRunner {
         TipNotifikacije tipNotifikacije5 = new TipNotifikacije();
         tipNotifikacije4.setNaziv("Azuriranje profila");
 
+        TipNotifikacije tipNotifikacije6 = new TipNotifikacije();
+        tipNotifikacije6.setNaziv("Aktivacija profila");
+
         notificationTypeRepository.save(tipNotifikacije);
         notificationTypeRepository.save(tipNotifikacije1);
         notificationTypeRepository.save(tipNotifikacije2);
         notificationTypeRepository.save(tipNotifikacije3);
         notificationTypeRepository.save(tipNotifikacije4);
         notificationTypeRepository.save(tipNotifikacije5);
+        notificationTypeRepository.save(tipNotifikacije6);
 
         Notifikacija notifikacija = new Notifikacija();
         notifikacija.setId(Long.valueOf(1));
