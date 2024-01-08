@@ -26,8 +26,8 @@ public class AdminController {
 
 
     @PostMapping("/ban/{userId}")
-    @CheckSecurity(roles={"ROLE_ADMIN"})
-    public ResponseEntity<String> banUser(@RequestHeader("Authorization") String authorization, @RequestBody @Valid @PathVariable Long userId) {
+   // @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> banUser( @RequestBody @Valid @PathVariable Long userId) {
         adminService.banClient(userId);
         //notifikacija
         return ResponseEntity.ok("Client with ID " + userId + " has been banned.");

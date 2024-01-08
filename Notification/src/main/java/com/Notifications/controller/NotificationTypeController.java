@@ -3,6 +3,7 @@ import com.Notifications.dto.TipNotifikacijeCreateDto;
 import com.Notifications.dto.TipNotifikacijeDto;
 import com.Notifications.security.CheckSecurity;
 import com.Notifications.service.TipNotifikacijeService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -38,8 +39,8 @@ public class NotificationTypeController {
         return new ResponseEntity<>(tipNotifikacijeService.update(tipNotifikacijeDto),HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    @CheckSecurity(roles={"ROLE_ADMIN"})
+    @DeleteMapping("/delete/{id}")
+//@CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity<Void> deleteNotificationType(@PathVariable Long id) {
         tipNotifikacijeService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
