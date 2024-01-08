@@ -15,4 +15,7 @@ public class ClientDto extends AdminDto{
     private Boolean isBanovan;
 
     private Manager manager;
+
+    private String activationMail;
+
 }

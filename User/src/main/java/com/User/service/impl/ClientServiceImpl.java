@@ -39,12 +39,29 @@ public class ClientServiceImpl implements ClientService {
         return clientMapper.clientToClientDto(client);
     }
 
+    @Override
+    public void activate(Long id) {
+        Client client = clientRepository.findById(id).orElseThrow(RuntimeException::new);
+        client.setIsBanovan(false);
+        clientRepository.save(client);
+    }
+
 
     @Override
     public ClientDto add(ClientCreateDto clientCreateDto) {
+        clientCreateDto.setIsBanovan(true); // not activated in the beginning!
         Client client =  clientMapper.clientCreateDtoToClient(clientCreateDto);
         clientRepository.save(client);
         return  clientMapper.clientToClientDto(client);
+    }
+    @Override
+    public String returnAToken(ClientDto clientDto){
+
+        Claims claims = Jwts.claims();
+        claims.put("id",clientDto.getId());
+        claims.put("role",clientDto.getRole().getName());
+
+        return tokenService.generate(claims);
     }
 
     @Override
@@ -55,6 +72,9 @@ public class ClientServiceImpl implements ClientService {
                         .format("Client with username: %s and password: %s not found.", tokenRequestDto.getUsername(),
                                 tokenRequestDto.getPassword())));
 
+        if(client.isIsBanovan()){
+            return null;
+        }
         Claims claims = Jwts.claims();
         claims.put("id", client.getId());
         claims.put("role", client.getRole().getName());

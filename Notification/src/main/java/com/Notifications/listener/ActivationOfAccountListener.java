@@ -1,9 +1,7 @@
 package com.Notifications.listener;
 
-import com.Notifications.NotificationsService;
 import com.Notifications.domain.Notifikacija;
 import com.Notifications.dto.ClientDto;
-import com.Notifications.dto.EmailDto;
 import com.Notifications.listener.helper.MessageHelper;
 import com.Notifications.repository.NotificationRepository;
 import com.Notifications.repository.NotificationTypeRepository;
@@ -16,25 +14,26 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-
-@Component
 @AllArgsConstructor
-public class ActivationMailListener {
+@Component
+public class ActivationOfAccountListener {
 
     private MessageHelper messageHelper;
     private EmailService emailService;
     private NotifikacijaService notifikacijaService;
     private NotificationRepository notificationRepository;
     private NotificationTypeRepository notificationTypeRepository;
-    @JmsListener(destination = "${destination.sendEmails}", concurrency = "5-10")
+    @JmsListener(destination = "${destination.activateAccount}", concurrency = "5-10")
     public void sendActivationMail(Message message) throws JMSException {
         ClientDto clientDto = messageHelper.getMessage(message, ClientDto.class);
         Notifikacija notifikacija = new Notifikacija();
-        notifikacija.setTipNotifikacije(notificationTypeRepository.findById(2L).orElseThrow(RuntimeException::new));
+        notifikacija.setTipNotifikacije(notificationTypeRepository.findById(6L).orElseThrow(RuntimeException::new));
         notifikacija.setDatumSlanja(LocalDateTime.now());
         notificationRepository.save(notifikacija);
 
-        emailService.sendSimpleMessage(clientDto.getEmail(), "Activation Mail", "Please click on the link below to activate your account!\n" + clientDto.getActivationMail());
-
+        emailService.sendSimpleMessage(clientDto.getEmail(), "Successful Activation", "You have successfully activated your account, please log in!");
     }
+
+
+
 }
