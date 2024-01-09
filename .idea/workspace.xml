@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije">
+      <change afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeUpdateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ManagerUdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/FiskulturnaSalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/FiskulturnaSalaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TipTreningaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TipTreningaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/RezervacijaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/RezervacijaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/runner/TestDataRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/controller/NotificationTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/controller/NotificationTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/runner/TestDataRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/TipNotifikacijeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/TipNotifikacijeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/impl/TipNotifkacijeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/impl/TipNotifkacijeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ManagerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/ManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ManagerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/AdminMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/ManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ClientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ClientServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ManagerServiceImpl.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2adE0OhYBe3HFManM10q9Yt9UEf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;e4e518e1e226ad9d9810304130e297bb&quot;
+  }
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.GymServiceApplication">
+    <configuration name="EurekaServerService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="GymEurekaService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="eurekaservice.EurekaServerService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eurekaservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GymGateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="GymGateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="gateway.GymGateWayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GymServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="GymService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="raf.GymServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationsService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Notifications" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Notifications.NotificationsService" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="User" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.User.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.GymGateWayApplication" />
+        <item itemvalue="Spring Boot.EurekaServerService" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="" />
+      <created>1704639834746</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704639834746</updated>
+      <workItem from="1704639837202" duration="2306000" />
+      <workItem from="1704710251180" duration="3951000" />
+      <workItem from="1704714319461" duration="167000" />
+      <workItem from="1704714712227" duration="11186000" />
+      <workItem from="1704736341163" duration="3384000" />
+      <workItem from="1704749797579" duration="68000" />
+      <workItem from="1704751150488" duration="9287000" />
+    </task>
+    <task id="LOCAL-00001" summary="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu,">
+      <created>1704725531017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704725531018</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu,">
+      <created>1704736352239</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704736352239</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Dodata funkcija za banovanje">
+      <created>1704738298279</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704738298279</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije">
+      <created>1704740136214</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704740136214</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije">
+      <created>1704749814395</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704749814395</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu," />
+    <MESSAGE value="Dodata funkcija za banovanje" />
+    <MESSAGE value="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije" />
+  </component>
+</project>

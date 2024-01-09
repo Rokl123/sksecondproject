@@ -20,8 +20,8 @@ public class User {
     private String password;
     private String email;
     private Date datumRodjenja;
-    private String ime;
-    private String prezime;
+    private String firstName;
+    private String lastName;
 
     @ManyToOne(optional = false)
     private Role role;

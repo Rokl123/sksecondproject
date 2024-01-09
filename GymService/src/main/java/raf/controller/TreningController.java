@@ -17,13 +17,14 @@ import raf.service.TreningService;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/treninzi")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TreningController {
 
     private TreningService treningService;
 
-    @GetMapping
-    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
-    public ResponseEntity<Page<TreningDto>> findAllTrainings(@RequestHeader("Authorization") String authorization, Pageable pageable){
+    @GetMapping("/getAllTrainings")
+    //@CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
+    public ResponseEntity<Page<TreningDto>> findAllTrainings( Pageable pageable){
         return new ResponseEntity<>(treningService.findAll(pageable), HttpStatus.OK);
     }
 

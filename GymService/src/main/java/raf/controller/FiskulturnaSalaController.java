@@ -16,6 +16,7 @@ import raf.service.FiskulturnaSalaService;
 @RestController
 @RequestMapping("/sala")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class FiskulturnaSalaController {
 
     private FiskulturnaSalaService fiskulturnaSalaService;

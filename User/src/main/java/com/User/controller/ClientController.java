@@ -100,7 +100,7 @@ public class ClientController {
     }
 
 
-    @PutMapping("/{clientId}")
+    @PutMapping("/update/{clientId}")
     public ResponseEntity<String> updateProfile(@PathVariable("clientId") Long clientId, @RequestBody ClientUpdateDto updatedClient) {
         clientService.updateProfile(Long.valueOf(clientId), updatedClient);
 

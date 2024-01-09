@@ -20,8 +20,8 @@ public class ClientMapper {
         clientDto.setId(client.getId());
         clientDto.setRole(client.getRole());
         clientDto.setEmail(client.getEmail());
-        clientDto.setFirstName(client.getIme());
-        clientDto.setLastName(client.getPrezime());
+        clientDto.setFirstName(client.getFirstName());
+        clientDto.setLastName(client.getLastName());
         clientDto.setPassword(client.getPassword());
         clientDto.setUsername(client.getUsername());
         clientDto.setDatumRodjenja(client.getDatumRodjenja());
@@ -34,8 +34,8 @@ public class ClientMapper {
     public Client clientCreateDtoToClient(ClientCreateDto clientCreateDto) {
         Client client = new Client();
         client.setEmail(clientCreateDto.getEmail());
-        client.setIme(clientCreateDto.getFirstName());
-        client.setPrezime(clientCreateDto.getLastName());
+        client.setFirstName(clientCreateDto.getFirstName());
+        client.setLastName(clientCreateDto.getLastName());
         client.setUsername(clientCreateDto.getUsername());
         client.setPassword(clientCreateDto.getPassword());
         client.setDatumRodjenja(clientCreateDto.getDatumRodjenja());

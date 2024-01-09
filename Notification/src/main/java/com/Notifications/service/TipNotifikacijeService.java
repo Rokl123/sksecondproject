@@ -2,6 +2,7 @@ package com.Notifications.service;
 
 import com.Notifications.dto.TipNotifikacijeCreateDto;
 import com.Notifications.dto.TipNotifikacijeDto;
+import com.Notifications.dto.TipNotifikacijeUpdateDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -11,6 +12,6 @@ public interface TipNotifikacijeService {
 
     void delete(Long id);
 
-    TipNotifikacijeDto update(TipNotifikacijeDto tipNotifikacijeDto);
+    void update(Long id, TipNotifikacijeUpdateDto notifikacijeUpdateDto);
 
 }

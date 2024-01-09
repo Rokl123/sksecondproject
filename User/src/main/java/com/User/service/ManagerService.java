@@ -1,9 +1,6 @@
 package com.User.service;
 
-import com.User.dto.ManagerCreateDto;
-import com.User.dto.ManagerDto;
-import com.User.dto.TokenRequestDto;
-import com.User.dto.TokenResponseDto;
+import com.User.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,5 +12,7 @@ public interface ManagerService {
     TokenResponseDto login(TokenRequestDto tokenRequestDto);
 
     ManagerDto findById(Long id);
+
+    void updateProfile(Long id, ManagerUdateDto updatedProfile);
 
 }

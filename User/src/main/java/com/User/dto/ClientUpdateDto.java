@@ -8,12 +8,9 @@ import lombok.Setter;
 @Setter
 public class ClientUpdateDto {
 
-    private String ime;
-
-    private String prezime;
-
+    private String firstName;
+    private String lastName;
     private String username;
-
     private String password;
     private String email;
 }

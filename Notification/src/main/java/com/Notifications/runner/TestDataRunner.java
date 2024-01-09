@@ -38,7 +38,7 @@ public class TestDataRunner implements CommandLineRunner {
         tipNotifikacije4.setNaziv("Otkazivanje treninga");
 
         TipNotifikacije tipNotifikacije5 = new TipNotifikacije();
-        tipNotifikacije4.setNaziv("Azuriranje profila");
+        tipNotifikacije5.setNaziv("Azuriranje profila");
 
         TipNotifikacije tipNotifikacije6 = new TipNotifikacije();
         tipNotifikacije6.setNaziv("Aktivacija profila");

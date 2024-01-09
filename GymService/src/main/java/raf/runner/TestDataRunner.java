@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import raf.domain.FiskulturnaSala;
+import raf.domain.Rezervacija;
 import raf.domain.TipTreninga;
 import raf.domain.Trening;
 import raf.repository.FiskulturnaSalaRepository;
+import raf.repository.RezervacijaRepository;
 import raf.repository.TipTreningaRepository;
 import raf.repository.TreningRepository;
 
@@ -21,6 +23,8 @@ public class TestDataRunner implements CommandLineRunner {
     private TipTreningaRepository tipTreningaRepository;
 
     private TreningRepository treningRepository;
+
+    private RezervacijaRepository rezervacijaRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -64,5 +68,14 @@ public class TestDataRunner implements CommandLineRunner {
         trening1.setCenaTreninga(1300);
         treningRepository.save(trening);
         treningRepository.save(trening1);
+
+        Rezervacija rezervacija = new Rezervacija();
+
+        rezervacija.setClientID(Long.valueOf(1));
+        rezervacija.setCenaTreninga(1500);
+        rezervacija.setRezervisaniTrening(trening);
+
+        rezervacijaRepository.save(rezervacija);
+
     }
 }

@@ -1,10 +1,8 @@
 package com.User.service.impl;
 
+import com.User.domain.Client;
 import com.User.domain.Manager;
-import com.User.dto.ManagerCreateDto;
-import com.User.dto.ManagerDto;
-import com.User.dto.TokenRequestDto;
-import com.User.dto.TokenResponseDto;
+import com.User.dto.*;
 import com.User.exception.NotFoundException;
 import com.User.mapper.ManagerMapper;
 import com.User.repository.ManagerRepository;
@@ -63,5 +61,19 @@ public class ManagerServiceImpl implements ManagerService {
         ManagerDto managerDto = managerMapper.managerToManagerDto(manager);
 
         return managerDto;
+    }
+
+    @Override
+    public void updateProfile(Long id, ManagerUdateDto updatedProfile) {
+        Manager manager = managerRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        manager.setUsername(updatedProfile.getUsername());
+        manager.setPassword(updatedProfile.getPassword());
+        manager.setEmail(updatedProfile.getEmail());
+        manager.setFirstName(updatedProfile.getFirstName());
+        manager.setLastName(updatedProfile.getLastName());
+
+
+        managerRepository.save(manager);
     }
 }

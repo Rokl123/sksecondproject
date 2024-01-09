@@ -1,6 +1,7 @@
 package com.Notifications.controller;
 import com.Notifications.dto.TipNotifikacijeCreateDto;
 import com.Notifications.dto.TipNotifikacijeDto;
+import com.Notifications.dto.TipNotifikacijeUpdateDto;
 import com.Notifications.security.CheckSecurity;
 import com.Notifications.service.TipNotifikacijeService;
 import jakarta.validation.Valid;
@@ -33,15 +34,17 @@ public class NotificationTypeController {
 
     }
 
-    @PutMapping("/upadte/{id}")
-    @CheckSecurity(roles={"ROLE_ADMIN"})
-    public ResponseEntity<TipNotifikacijeDto> updateNotificationType(@RequestBody TipNotifikacijeDto tipNotifikacijeDto) {
-        return new ResponseEntity<>(tipNotifikacijeService.update(tipNotifikacijeDto),HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    //@CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> updateNotificationType(@PathVariable("id") Long id,@RequestBody TipNotifikacijeUpdateDto notifikacijeUpdateDto) {
+        tipNotifikacijeService.update(id,notifikacijeUpdateDto);
+
+        return ResponseEntity.ok("Type updated successfully.");
     }
 
     @DeleteMapping("/delete/{id}")
     //@CheckSecurity(roles={"ROLE_ADMIN"})
-    public ResponseEntity<Void> deleteNotificationType(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteNotificationType(@PathVariable("id") Long id) {
         tipNotifikacijeService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

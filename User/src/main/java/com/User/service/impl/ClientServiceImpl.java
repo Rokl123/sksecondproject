@@ -89,8 +89,8 @@ public class ClientServiceImpl implements ClientService {
         client.setUsername(updatedProfile.getUsername());
         client.setPassword(updatedProfile.getPassword());
         client.setEmail(updatedProfile.getEmail());
-        client.setIme(updatedProfile.getIme());
-        client.setPrezime(updatedProfile.getPrezime());
+        client.setFirstName(updatedProfile.getFirstName());
+        client.setLastName(updatedProfile.getLastName());
 
 
         clientRepository.save(client);

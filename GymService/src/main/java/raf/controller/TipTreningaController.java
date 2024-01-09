@@ -14,13 +14,14 @@ import raf.service.TipTreningaService;
 @RestController
 @RequestMapping("/tiptreninga")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class TipTreningaController {
 
     private TipTreningaService tipTreningaService;
 
-    @GetMapping
-    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
-    public ResponseEntity<Page<TipTreningaDto>> getAllTipovi(@RequestHeader("Authorization") String authorization, Pageable pageable){
+    @GetMapping("/getAllTypes")
+//    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
+    public ResponseEntity<Page<TipTreningaDto>> getAllTipovi( Pageable pageable){
         return new ResponseEntity<>(tipTreningaService.findAll(pageable), HttpStatus.OK);
     }
 

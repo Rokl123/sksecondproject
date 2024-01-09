@@ -28,10 +28,10 @@ public class ManagerMapper {
         ManagerDto managerDto = new ManagerDto();
         managerDto.setId(manager.getId());
         managerDto.setEmail(manager.getEmail());
-        managerDto.setFirstName(manager.getIme());
+        managerDto.setFirstName(manager.getFirstName());
         managerDto.setPassword(manager.getPassword());
         managerDto.setRole(manager.getRole());
-        managerDto.setLastName(manager.getPrezime());
+        managerDto.setLastName(manager.getLastName());
         managerDto.setUsername(manager.getUsername());
         managerDto.setDatumRodjenja(manager.getDatumRodjenja());
         managerDto.setBanovan(manager.getIsBanovan());
@@ -48,8 +48,8 @@ public class ManagerMapper {
     public Manager managerCreateDtoToManager(ManagerCreateDto managerCreateDto) {
         Manager manager = new Manager();
         manager.setEmail(managerCreateDto.getEmail());
-        manager.setIme(managerCreateDto.getFirstName());
-        manager.setPrezime(managerCreateDto.getLastName());
+        manager.setFirstName(managerCreateDto.getFirstName());
+        manager.setLastName(managerCreateDto.getLastName());
         manager.setUsername(managerCreateDto.getUsername());
         manager.setPassword(managerCreateDto.getPassword());
         manager.setDatumRodjenja(managerCreateDto.getDatumRodjenja());
