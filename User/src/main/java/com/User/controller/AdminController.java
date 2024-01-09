@@ -35,11 +35,28 @@ public class AdminController {
 
 
     @PostMapping("/unban/{userId}")
-    @CheckSecurity(roles={"ROLE_ADMIN"})
-    public ResponseEntity<String> unbanUser(@RequestHeader("Authorization") String authorization,@RequestBody @Valid @PathVariable Long userId) {
+//    @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> unbanUser(@RequestBody @Valid @PathVariable Long userId) {
         adminService.unBanClient(userId);
         //notifikacija
         return ResponseEntity.ok("Client with ID " + userId + " has been unbanned.");
+    }
+
+    @PostMapping("/banM/{userId}")
+    // @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> banManger( @RequestBody @Valid @PathVariable Long userId) {
+        adminService.banManager(userId);
+        //notifikacija
+        return ResponseEntity.ok("Manager with ID " + userId + " has been banned.");
+    }
+
+
+    @PostMapping("/unbanM/{userId}")
+//    @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<String> unbanManager(@RequestBody @Valid @PathVariable Long userId) {
+        adminService.unBanManager(userId);
+        //notifikacija
+        return ResponseEntity.ok("Manager with ID " + userId + " has been unbanned.");
     }
 
 

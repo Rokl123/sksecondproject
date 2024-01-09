@@ -77,9 +77,9 @@ public class RezervacijaController {
         return new ResponseEntity<>(rezervacijaService.update(rezervacijaUpdateDto),HttpStatus.OK);
     }
 
-    @DeleteMapping("/{reservationid}")
+    @DeleteMapping("/delete/{reservationid}")
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
-    public ResponseEntity deleteReservation(@RequestHeader("Authorization") String authorization,@PathVariable("reservationid") Long id){ //id rezervacije koju dobijamo kada kliknemo na rezervaciju koju otkazujemo
+    public ResponseEntity deleteReservation(@PathVariable("reservationid") Long id){ //id rezervacije koju dobijamo kada kliknemo na rezervaciju koju otkazujemo
 
         rezervacijaService.deleteById(id);
 

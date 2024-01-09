@@ -4,43 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije">
-      <change afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeUpdateDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ManagerUdateDto.java" afterDir="false" />
+    <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija">
+      <change afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/configurations/CorsConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/FiskulturnaSalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/FiskulturnaSalaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TipTreningaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TipTreningaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/RezervacijaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/RezervacijaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/FiskulturnaSala.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/FiskulturnaSala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/FiskulturnaSalaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/FiskulturnaSalaMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/runner/TestDataRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/controller/NotificationTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/controller/NotificationTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/dto/TipNotifikacijeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/runner/TestDataRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/TipNotifikacijeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/TipNotifikacijeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/impl/TipNotifkacijeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/java/com/Notifications/service/impl/TipNotifkacijeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/service/impl/FiskulturnaSalaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/service/impl/FiskulturnaSalaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientUpdateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ManagerUdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ManagerUdateDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/ManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ManagerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/AdminServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/AdminMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/ManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ClientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ClientServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ManagerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/AdminServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,18 +52,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;e4e518e1e226ad9d9810304130e297bb&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "e4e518e1e226ad9d9810304130e297bb"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="raf.configurations" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -153,7 +148,10 @@
       <workItem from="1704714712227" duration="11186000" />
       <workItem from="1704736341163" duration="3384000" />
       <workItem from="1704749797579" duration="68000" />
-      <workItem from="1704751150488" duration="9287000" />
+      <workItem from="1704751150488" duration="9839000" />
+      <workItem from="1704821022462" duration="89000" />
+      <workItem from="1704821247457" duration="2745000" />
+      <workItem from="1704834586134" duration="9430000" />
     </task>
     <task id="LOCAL-00001" summary="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu,">
       <created>1704725531017</created>
@@ -190,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1704749814395</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija">
+      <created>1704761034890</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704761034890</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija">
+      <created>1704761046364</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704761046364</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +223,7 @@
     <MESSAGE value="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu," />
     <MESSAGE value="Dodata funkcija za banovanje" />
     <MESSAGE value="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije" />
+    <MESSAGE value="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija" />
   </component>
 </project>

@@ -19,9 +19,9 @@ public class FiskulturnaSala {
     @Column(unique = true)
     private String name;
     @Column(nullable = false)
-    private int kapacitet=12;
+    private int kapacitet;
 
-    private int loyalty = 10;
+    private int loyalty;
 
     @NotNull
     private Long manager_id;

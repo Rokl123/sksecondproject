@@ -12,13 +12,14 @@ import org.hibernate.validator.constraints.Length;
 public class FiskulturnaSalaCreateDto {
 
     @Length(min = 1, max = 50)
-    private String naziv;
+    private String name;
 
     private int kapacitet=12;
 
     private String opis;
 
     private int brojTrenera;
+    private int loyalty;
 
     @NotNull
     private Long manager_id;

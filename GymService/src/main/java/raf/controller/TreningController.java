@@ -46,9 +46,9 @@ public class TreningController {
         return new ResponseEntity<>(treningService.update(treningUpdateDto),HttpStatus.OK);
     }
 
-    @DeleteMapping("/{trening_id}")
-    @CheckSecurity(roles= {"ROLE_ADMIN","ROLE_MANAGER"})
-    public ResponseEntity<TreningDto> deleteTraining(@RequestHeader("Authorization") String authorization,@PathVariable("trening_id") Long trening_id){
+    @DeleteMapping("/delete/{trening_id}")
+    //@CheckSecurity(roles= {"ROLE_ADMIN","ROLE_MANAGER"})
+    public ResponseEntity<TreningDto> deleteTraining(@PathVariable("trening_id") Long trening_id){
         treningService.deleteById(trening_id);
 
         return new ResponseEntity<>(HttpStatus.OK);
