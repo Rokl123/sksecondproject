@@ -4,30 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija">
-      <change afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/configurations/CorsConfiguration.java" afterDir="false" />
+    <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Menjam da radi, vise ne znam ni sam:)">
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/src/main/java/com/apigetaway/ApiGetawayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/src/test/java/com/apigetaway/ApiGetawayApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/User/configuration/CorsConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sksecondproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sksecondproject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/FiskulturnaSalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/FiskulturnaSalaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/FiskulturnaSala.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/FiskulturnaSala.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaUpdateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/FiskulturnaSalaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/FiskulturnaSalaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/runner/TestDataRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/service/impl/FiskulturnaSalaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/service/impl/FiskulturnaSalaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientUpdateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ManagerUdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ManagerUdateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/AdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/User/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,13 +48,24 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2adE0OhYBe3HFManM10q9Yt9UEf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -61,13 +73,17 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/mikac/OneDrive/Desktop/sksecondproject/Api-Gateway",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "e4e518e1e226ad9d9810304130e297bb"
+    "spring.configuration.checksum": "b568495da8b47c3cb55e772a6fe3d3d7"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mikac\OneDrive\Desktop\sksecondproject\User\src\main\java\com\User" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="raf.configurations" />
     </key>
@@ -79,7 +95,21 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GymServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ApiGetawayApplication">
+    <configuration name="ApiGetawayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
+      <module name="api-getaway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.apigetaway.ApiGetawayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.apigetaway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaServerService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="GymEurekaService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="eurekaservice.EurekaServerService" />
@@ -107,6 +137,7 @@
       </method>
     </configuration>
     <configuration name="GymServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="GymService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="raf.GymServiceApplication" />
       <method v="2">
@@ -127,8 +158,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.GymServiceApplication" />
+      <item itemvalue="Spring Boot.NotificationsService" />
+      <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.ApiGetawayApplication" />
+      <item itemvalue="Spring Boot.EurekaServerService" />
+      <item itemvalue="Spring Boot.GymGateWayApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.ApiGetawayApplication" />
         <item itemvalue="Spring Boot.GymGateWayApplication" />
         <item itemvalue="Spring Boot.EurekaServerService" />
       </list>
@@ -151,7 +191,13 @@
       <workItem from="1704751150488" duration="9839000" />
       <workItem from="1704821022462" duration="89000" />
       <workItem from="1704821247457" duration="2745000" />
-      <workItem from="1704834586134" duration="9430000" />
+      <workItem from="1704834586134" duration="9672000" />
+      <workItem from="1704919791827" duration="3837000" />
+      <workItem from="1704929759012" duration="80000" />
+      <workItem from="1704930035682" duration="1112000" />
+      <workItem from="1704931167055" duration="484000" />
+      <workItem from="1704931679092" duration="80000" />
+      <workItem from="1704931855698" duration="4101000" />
     </task>
     <task id="LOCAL-00001" summary="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu,">
       <created>1704725531017</created>
@@ -202,7 +248,21 @@
       <option name="project" value="LOCAL" />
       <updated>1704761046364</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Menjam da radi, vise ne znam ni sam:)">
+      <created>1704844287079</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704844287079</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Menjam da radi, vise ne znam ni sam:)">
+      <created>1704844300664</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704844300664</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,10 +280,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu," />
     <MESSAGE value="Dodata funkcija za banovanje" />
     <MESSAGE value="Dodata funkcija za banovanje korisnika i brisanje tipa notifikacije" />
     <MESSAGE value="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodati treninzi,rezervacije, brisanje i update tipa notifikacija" />
+    <MESSAGE value="Menjam da radi, vise ne znam ni sam:)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menjam da radi, vise ne znam ni sam:)" />
   </component>
 </project>
