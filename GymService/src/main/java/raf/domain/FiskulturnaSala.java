@@ -16,19 +16,18 @@ public class FiskulturnaSala {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sala_id;
-    @Column(unique = true)
+
     private String name;
-    @Column(nullable = false)
+
     private int kapacitet;
 
     private int loyalty;
 
-    @NotNull
+
     private Long manager_id;
 
-    @Nullable
+
     private String opis;
 
-    @NotNull
     private int brojTrenera;
 }
