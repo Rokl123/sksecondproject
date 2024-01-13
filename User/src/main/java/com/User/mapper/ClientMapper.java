@@ -27,7 +27,7 @@ public class ClientMapper {
         clientDto.setDatumRodjenja(client.getDatumRodjenja());
         clientDto.setIsBanovan(client.isIsBanovan());
         clientDto.setBrojZakazanihTreninga(client.getBrojZakazanihTreninga());
-        clientDto.setBrojClanskeKartice(client.getBrojClanskeKartice());
+        clientDto.setBrojClanskeKartice(client.getBrojClanskeKartice().toString());
         clientDto.setManager(client.getManager());
         return clientDto;
     }
@@ -40,7 +40,8 @@ public class ClientMapper {
         client.setPassword(clientCreateDto.getPassword());
         client.setDatumRodjenja(clientCreateDto.getDatumRodjenja());
         client.setRole(roleRepository.findRoleByName("ROLE_CLIENT").get());
-//        client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
+        client.setBrojClanskeKartice(clientCreateDto.getBrojClanskeKartice());
+
 //        client.setBrojZakazanihTreninga(clientCreateDto.getBrojZakazanihTreninga());
 //        client.setManager(clientCreateDto.getManager());
 
