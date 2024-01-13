@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Dodat api Gateway koji rad, postoji problem, ne moze da se pokrene kada je sa svim servisima, nego ceo folder tj service mora da se izvadi iz centralnog foldera i da se otvori i pokrene kao zaseban direktorijum, vrv neki micko momenta (4 sata vec razbijam glavu zasto nece da se kopajlira)">
+      <change afterPath="$PROJECT_DIR$/GymGateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/FiskulturnaSala.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/FiskulturnaSala.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/FiskulturnaSalaCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GymGateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymGateway/src/main/java/gateway/GymGateWayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymGateway/src/main/java/gateway/GymGateWayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymGateway/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymGateway/target/classes/gateway/GymGateWayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/GymGateway/target/classes/gateway/GymGateWayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +45,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2adE0OhYBe3HFManM10q9Yt9UEf" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -42,25 +56,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mikac/OneDrive/Desktop/sksecondproject/Api-Gateway&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b568495da8b47c3cb55e772a6fe3d3d7&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.EurekaServerService.executor": "Run",
+    "Spring Boot.GymGateWayApplication.executor": "Run",
+    "Spring Boot.GymServiceApplication.executor": "Run",
+    "Spring Boot.NotificationsService.executor": "Run",
+    "Spring Boot.UserApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pante/OneDrive/Desktop/sksecondproject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "spring.configuration.checksum": "b568495da8b47c3cb55e772a6fe3d3d7",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pante\OneDrive\Desktop\sksecondproject" />
       <recent name="C:\Users\mikac\OneDrive\Desktop\sksecondproject\User\src\main\java\com\User" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -70,6 +99,8 @@
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
@@ -147,11 +178,18 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ApiGetawayApplication" />
         <item itemvalue="Spring Boot.GymGateWayApplication" />
         <item itemvalue="Spring Boot.EurekaServerService" />
+        <item itemvalue="Spring Boot.ApiGetawayApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-18.0.2-corretto-18.0.2-f644763e9732-da6bd485" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -177,6 +215,7 @@
       <workItem from="1704931167055" duration="484000" />
       <workItem from="1704931679092" duration="80000" />
       <workItem from="1704931855698" duration="4101000" />
+      <workItem from="1705160039500" duration="1736000" />
     </task>
     <task id="LOCAL-00001" summary="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu,">
       <created>1704725531017</created>

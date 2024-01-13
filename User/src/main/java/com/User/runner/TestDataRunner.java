@@ -8,6 +8,9 @@ import com.User.repository.AdminRepository;
 import com.User.repository.ClientRepository;
 import com.User.repository.ManagerRepository;
 import com.User.repository.RoleRepository;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -19,6 +22,7 @@ import java.util.List;
 
 @Profile({"default"})
 @Component
+@AllArgsConstructor
 public class TestDataRunner implements CommandLineRunner {
 
     private RoleRepository roleRepository;
@@ -27,13 +31,13 @@ public class TestDataRunner implements CommandLineRunner {
 
     private ManagerRepository managerRepository;
 
-    public TestDataRunner(RoleRepository roleRepository, ClientRepository userRepository, AdminRepository adminRepository,
-                          ManagerRepository managerRepository) {
-        this.roleRepository = roleRepository;
-        this.userRepository = userRepository;
-        this.adminRepository=adminRepository;
-        this.managerRepository=managerRepository;
-    }
+//    public TestDataRunner(RoleRepository roleRepository, ClientRepository userRepository, AdminRepository adminRepository,
+//                          ManagerRepository managerRepository) {
+//        this.roleRepository = roleRepository;
+//        this.userRepository = userRepository;
+//        this.adminRepository=adminRepository;
+//        this.managerRepository=managerRepository;
+//    }
 
     @Override
     public void run(String... args) throws Exception {
