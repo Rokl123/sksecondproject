@@ -18,4 +18,5 @@ public class ClientDto extends AdminDto{
 
     private String activationMail;
 
+
 }
