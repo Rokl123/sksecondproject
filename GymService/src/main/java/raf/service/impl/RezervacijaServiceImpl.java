@@ -70,42 +70,45 @@ public class RezervacijaServiceImpl implements RezervacijaService {
     @Override
     public RezervacijaDto add(RezervacijaCreateDto rezervacijaCreateDto)
     {
-        Trening trening = treningRepository.findById(rezervacijaCreateDto.getTrening_id()).orElseThrow(RuntimeException::new);
-        rezervacijaCreateDto.setTrening(trening);
-        Rezervacija rezervacija = rezervacijaMapper.DtoToDomainObject(rezervacijaCreateDto);
-        for(Rezervacija r: rezervacijaRepository.findAll()){
-            if(r.getClientID().equals(rezervacija.getClientID()) && r.getRezervisaniTrening().equals(rezervacija.getRezervisaniTrening()) &&
-                    (r.getRezervisaniTrening().getTerminTreninga().equals(rezervacija.getRezervisaniTrening().getTerminTreninga())
-                    && r.getRezervisaniTrening().getPocetakTermina().equals(rezervacija.getRezervisaniTrening().getPocetakTermina()))
-                    &&  r.getRezervisaniTrening().getKrajTermina().equals(rezervacija.getRezervisaniTrening().getKrajTermina())){
-                return null;
-            }
-        }
+//        Trening trening = treningRepository.findById(rezervacijaCreateDto.getTrening_id()).orElseThrow(RuntimeException::new);
+//        rezervacijaCreateDto.setTrening(trening);
+//        Rezervacija rezervacija = rezervacijaMapper.DtoToDomainObject(rezervacijaCreateDto);
+//        for(Rezervacija r: rezervacijaRepository.findAll()){
+//            if(r.getClientID().equals(rezervacija.getClientID()) && r.getRezervisaniTrening().equals(rezervacija.getRezervisaniTrening()) &&
+//                    (r.getRezervisaniTrening().getTerminTreninga().equals(rezervacija.getRezervisaniTrening().getTerminTreninga())
+//                    && r.getRezervisaniTrening().getPocetakTermina().equals(rezervacija.getRezervisaniTrening().getPocetakTermina()))
+//                    &&  r.getRezervisaniTrening().getKrajTermina().equals(rezervacija.getRezervisaniTrening().getKrajTermina())){
+//                return null;
+//            }
+//        }
+//
+//        ClientDto clientDto = null;
+//
+//        clientDto = Retry.decorateSupplier(userServiceRetry,()->getClient(rezervacijaCreateDto.getClient_id())).get();
+//
+//        if(trening.getSala().getKapacitet() == trening.getBrRezervacija())
+//            return null;
+//        if((clientDto.getBrojZakazanihTreninga()+1) % trening.getSala().getLoyalty() == 0)
+//            rezervacijaCreateDto.setCenaTreninga(0);
+//        else
+//            rezervacijaCreateDto.setCenaTreninga(trening.getCenaTreninga());
+//
+//        rezervacijaCreateDto.setTrening_id(trening.getTrening_id());
+//        rezervacijaCreateDto.setClient_id(clientDto.getId());
+//        trening.setBrRezervacija(trening.getBrRezervacija()+1);
+//        rezervacija.setCenaTreninga(rezervacijaCreateDto.getCenaTreninga());
+//
+//        rezervacijaRepository.save(rezervacija);
+//        RezervacijaDto rDto = rezervacijaMapper.DomainObjectToDto(rezervacija);
+//
+//        IncrementReservationDto incrementReservationDto = new IncrementReservationDto();
+//        incrementReservationDto.setClient_id(rezervacijaCreateDto.getClient_id());
+//        jmsTemplate.convertAndSend(destination,messageHelper.createTextMessage(incrementReservationDto));
 
-        ClientDto clientDto = null;
-
-        clientDto = Retry.decorateSupplier(userServiceRetry,()->getClient(rezervacijaCreateDto.getClient_id())).get();
-
-        if(trening.getSala().getKapacitet() == trening.getBrRezervacija())
-            return null;
-        if((clientDto.getBrojZakazanihTreninga()+1) % trening.getSala().getLoyalty() == 0)
-            rezervacijaCreateDto.setCenaTreninga(0);
-        else
-            rezervacijaCreateDto.setCenaTreninga(trening.getCenaTreninga());
-
-        rezervacijaCreateDto.setTrening_id(trening.getTrening_id());
-        rezervacijaCreateDto.setClient_id(clientDto.getId());
-        trening.setBrRezervacija(trening.getBrRezervacija()+1);
-        rezervacija.setCenaTreninga(rezervacijaCreateDto.getCenaTreninga());
-
-        rezervacijaRepository.save(rezervacija);
-        RezervacijaDto rDto = rezervacijaMapper.DomainObjectToDto(rezervacija);
-
-        IncrementReservationDto incrementReservationDto = new IncrementReservationDto();
-        incrementReservationDto.setClient_id(rezervacijaCreateDto.getClient_id());
-        jmsTemplate.convertAndSend(destination,messageHelper.createTextMessage(incrementReservationDto));
-
-        return rDto;
+//        return rDto;
+            Rezervacija rezervacija = rezervacijaMapper.DtoToDomainObject(rezervacijaCreateDto);
+            rezervacijaRepository.save(rezervacija);
+            return rezervacijaMapper.DomainObjectToDto(rezervacija);
     }
     private ClientDto getClient(Long id){
         ResponseEntity<ClientDto> clientDtoResponseEntity = null;

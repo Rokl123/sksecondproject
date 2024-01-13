@@ -23,4 +23,5 @@ public class Rezervacija {
     private int cenaTreninga ;
 
     private Long clientID;
+
 }

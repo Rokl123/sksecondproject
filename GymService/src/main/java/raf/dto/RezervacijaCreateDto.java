@@ -11,10 +11,9 @@ public class RezervacijaCreateDto {
 
     private int cenaTreninga;
 
-    private Trening trening;
+    private Trening rezervisaniTrening;
+
     @NotNull
-    private Long trening_id;
-    @NotNull
-    private Long client_id;
+    private Long clientID;
 
 }

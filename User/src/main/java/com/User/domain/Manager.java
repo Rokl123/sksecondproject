@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-//@Table(name = "Manager")
+@Table(name = "Manager")
 @Getter
 @Setter
 public class Manager extends User{

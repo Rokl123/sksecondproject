@@ -7,14 +7,14 @@ import raf.domain.Trening;
 @Setter
 public class RezervacijaDto {
 
-    private Long id;
+    private Long rezervacija_id;
 
-    private int brPrijavljenih;
+    //private int brPrijavljenih;
 
-    private Trening trening;
+    private Trening rezervisaniTrening;
 
     private int cenaTreninga;
 
-    private Long client_id;
+    private Long clientID;
 
 }

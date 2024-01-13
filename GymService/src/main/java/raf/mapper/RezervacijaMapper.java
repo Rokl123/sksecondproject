@@ -9,18 +9,19 @@ import raf.dto.RezervacijaDto;
 public class RezervacijaMapper {
     public RezervacijaDto DomainObjectToDto(Rezervacija rezervacija){
        RezervacijaDto rezervacijaDto = new RezervacijaDto();
-       rezervacijaDto.setId(rezervacija.getRezervacija_id());
+       rezervacijaDto.setRezervacija_id(rezervacija.getRezervacija_id());
        rezervacijaDto.setCenaTreninga(rezervacija.getCenaTreninga());
-       rezervacijaDto.setTrening(rezervacija.getRezervisaniTrening());
-       rezervacijaDto.setClient_id(rezervacija.getClientID());
+       rezervacijaDto.setRezervisaniTrening(rezervacija.getRezervisaniTrening());
+       rezervacijaDto.setClientID(rezervacija.getClientID());
        return rezervacijaDto;
     }
 
     public Rezervacija DtoToDomainObject(RezervacijaCreateDto rezervacijaCreateDto){
        Rezervacija rezervacija = new Rezervacija();
-       rezervacija.setClientID(rezervacijaCreateDto.getClient_id());
-       rezervacija.setRezervisaniTrening(rezervacijaCreateDto.getTrening());
-
+       rezervacija.setClientID(rezervacijaCreateDto.getClientID());
+       rezervacija.setRezervisaniTrening(rezervacijaCreateDto.getRezervisaniTrening());
+       rezervacija.setCenaTreninga(rezervacijaCreateDto.getCenaTreninga());
+       //rezervacija.setRezervacija_id(rezervacijaCreateDto.getRezervacija_id());
        return rezervacija;
     }
 }

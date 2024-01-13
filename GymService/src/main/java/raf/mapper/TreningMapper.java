@@ -18,6 +18,7 @@ public class TreningMapper {
         tDto.setPocetakTermina(trening.getPocetakTermina());
         tDto.setKrajTermina(trening.getKrajTermina());
         tDto.setTerminTreninga(trening.getTerminTreninga());
+        tDto.setGrupni(trening.isGrupni());
         return tDto;
     }
 

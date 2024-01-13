@@ -11,7 +11,7 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-//@Table(name = "Client")
+@Table(name = "Client")
 @Getter
 @Setter
 public class Client extends User{

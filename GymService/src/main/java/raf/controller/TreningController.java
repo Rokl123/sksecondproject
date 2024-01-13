@@ -50,7 +50,6 @@ public class TreningController {
     //@CheckSecurity(roles= {"ROLE_ADMIN","ROLE_MANAGER"})
     public ResponseEntity<TreningDto> deleteTraining(@PathVariable("trening_id") Long trening_id){
         treningService.deleteById(trening_id);
-
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

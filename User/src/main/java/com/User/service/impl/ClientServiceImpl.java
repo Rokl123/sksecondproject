@@ -45,8 +45,6 @@ public class ClientServiceImpl implements ClientService {
         client.setIsBanovan(false);
         clientRepository.save(client);
     }
-
-
     @Override
     public ClientDto add(ClientCreateDto clientCreateDto) {
         clientCreateDto.setIsBanovan(true); // not activated in the beginning!

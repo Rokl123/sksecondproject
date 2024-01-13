@@ -58,14 +58,11 @@ public class RezervacijaController {
         return new ResponseEntity<>(rezervacijaService.findByClientId(pageable,clientId), HttpStatus.OK);
     }
 
-    @PostMapping // TODO: uradi da se dobija client_id(iz sesije?) kao i trening_id (ovo ces dobijati tek kad uradimo GUI)
-    public ResponseEntity<RezervacijaDto> addReservation(@RequestHeader("Authorization") String authorization,@RequestBody @Valid RezervacijaCreateDto rezervacijaCreateDto){
-        if(rezervacijaService.add(rezervacijaCreateDto) == null){
-            return new ResponseEntity<>(null,HttpStatus.FORBIDDEN);
-        }
-
-
-
+    @PostMapping("/registerReservation")
+    public ResponseEntity<RezervacijaDto> addReservation(@RequestBody @Valid RezervacijaCreateDto rezervacijaCreateDto){
+//        if(rezervacijaService.add(rezervacijaCreateDto) == null){
+//            return new ResponseEntity<>(null,HttpStatus.FORBIDDEN);
+//        }
         return new ResponseEntity<>(rezervacijaService.add(rezervacijaCreateDto),HttpStatus.OK);
     }
 

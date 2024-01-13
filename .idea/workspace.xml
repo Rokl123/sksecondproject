@@ -5,27 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95096547-7b26-4eee-82f1-68a093e04a96" name="Changes" comment="Dodat api Gateway koji rad, postoji problem, ne moze da se pokrene kada je sa svim servisima, nego ceo folder tj service mora da se izvadi iz centralnog foldera i da se otvori i pokrene kao zaseban direktorijum, vrv neki micko momenta (4 sata vec razbijam glavu zasto nece da se kopajlira)">
-      <change afterPath="$PROJECT_DIR$/GymGateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GymGateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymGateway/src/main/java/gateway/GymGateWayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymGateway/src/main/java/gateway/GymGateWayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymGateway/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GymGateway/target/classes/gateway/GymGateWayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/GymGateway/target/classes/gateway/GymGateWayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/RezervacijaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/controller/TreningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/Rezervacija.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/domain/Rezervacija.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/RezervacijaCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/RezervacijaCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/RezervacijaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/dto/RezervacijaDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/RezervacijaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/RezervacijaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/TreningMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/mapper/TreningMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymService/src/main/java/raf/service/impl/RezervacijaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/GymService/src/main/java/raf/service/impl/RezervacijaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/domain/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/dto/ClientCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/mapper/ClientMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/runner/TestDataRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/User/service/impl/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/runner/TestDataRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/dto/ClientUpdateDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/dto/ClientUpdateDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ClientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/service/impl/ClientServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +44,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2adE0OhYBe3HFManM10q9Yt9UEf" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -73,7 +72,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pante/OneDrive/Desktop/sksecondproject",
+    "last_opened_file_path": "C:/Users/mikac/OneDrive/Desktop/Api-Gateway",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,7 +82,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.configurations.included.in.services": "true",
-    "spring.configuration.checksum": "b568495da8b47c3cb55e772a6fe3d3d7",
+    "spring.configuration.checksum": "9d02bed0cd654787dce78fb83ce855bb",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -216,6 +215,7 @@
       <workItem from="1704931679092" duration="80000" />
       <workItem from="1704931855698" duration="4101000" />
       <workItem from="1705160039500" duration="1736000" />
+      <workItem from="1705164078327" duration="5029000" />
     </task>
     <task id="LOCAL-00001" summary="Menjne su stvari kod User i Notifikacije, da bi radilo na frontu,">
       <created>1704725531017</created>
