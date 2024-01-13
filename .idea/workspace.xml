@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d6ecb4ed-dbad-43b8-8543-21a600bb04c4" name="Changes" comment="Gateway works, number of membership card is randomized finally :) USE THIS GATEWAY PROTO">
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/controller/NotificationTypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/controller/NotificationTypeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/dto/MatchDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/dto/MatchesDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/dto/ScoreDto$FullTime.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/dto/ScoreDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification/target/classes/com/Notifications/dto/TeamDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/domain/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/domain/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/dto/ClientCreateDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/dto/ClientCreateDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ClientMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/User/target/classes/com/User/mapper/ManagerMapper.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Rokl123&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a9b97922-7682-46fa-b074-724c08366284" />
+        <option name="url" value="https://github.com/Rokl123/sksecondproject.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2aXFPVSLKQdydhrpme6bzo7r95S" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.GymGateway [compile].executor": "Run",
+    "Maven.GymService [clean].executor": "Run",
+    "Maven.Notifications [clean].executor": "Run",
+    "Maven.User [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.EurekaServerService.executor": "Run",
+    "Spring Boot.GymGateWayApplication.executor": "Run",
+    "Spring Boot.GymServiceApplication.executor": "Run",
+    "Spring Boot.NotificationsService.executor": "Run",
+    "Spring Boot.UserApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "18",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pante/IdeaProjects/PPLekser",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.UserApplication">
+    <configuration name="EurekaServerService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="GymEurekaService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="eurekaservice.EurekaServerService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eurekaservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GymGateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="GymGateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="gateway.GymGateWayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GymServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="GymService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="raf.GymServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationsService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Notifications" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Notifications.NotificationsService" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="User" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.User.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.GymServiceApplication" />
+      <item itemvalue="Spring Boot.NotificationsService" />
+      <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.GymGateWayApplication" />
+      <item itemvalue="Spring Boot.EurekaServerService" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.GymGateWayApplication" />
+        <item itemvalue="Spring Boot.EurekaServerService" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-18.0.2-corretto-18.0.2-f644763e9732-da6bd485" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6ecb4ed-dbad-43b8-8543-21a600bb04c4" name="Changes" comment="" />
+      <created>1704456993723</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704456993723</updated>
+      <workItem from="1704456996529" duration="11444000" />
+      <workItem from="1704541737209" duration="5067000" />
+      <workItem from="1704547256024" duration="3000" />
+      <workItem from="1704664479169" duration="425000" />
+      <workItem from="1704670061897" duration="435000" />
+      <workItem from="1704729436008" duration="6298000" />
+      <workItem from="1704821893305" duration="117000" />
+      <workItem from="1705009174808" duration="77000" />
+      <workItem from="1705011269897" duration="3000" />
+      <workItem from="1705140629031" duration="5450000" />
+    </task>
+    <task id="LOCAL-00001" summary="I think I have done all functionalities, now I need EUREKA or Zuulu to be done with back end :). Will test for everything in days that will come!">
+      <option name="closed" value="true" />
+      <created>1704480482039</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704480482039</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Eureka and Zullu implementation done, colleague will test it on the front end! If some class isnt found just do maven clean! Only needed notification is for changing password.">
+      <option name="closed" value="true" />
+      <created>1704564762825</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704564762825</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added random gym membership card &quot;number&quot; and sala_id for manager">
+      <option name="closed" value="true" />
+      <created>1704664896842</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704664896842</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added activation mail! User needs to be activated in order to login!!!">
+      <option name="closed" value="true" />
+      <created>1704742587386</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704742587386</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Gateway works, number of membership card is randomized finally :) USE THIS GATEWAY PROTO">
+      <option name="closed" value="true" />
+      <created>1705156586920</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705156586920</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="I think I have done all functionalities, now I need EUREKA or Zuulu to be done with back end :). Will test for everything in days that will come!" />
+    <MESSAGE value="Eureka and Zullu implementation done, colleague will test it on the front end! If some class isnt found just do maven clean! Only needed notification is for changing password." />
+    <MESSAGE value="Added random gym membership card &quot;number&quot; and sala_id for manager" />
+    <MESSAGE value="Added activation mail! User needs to be activated in order to login!!!" />
+    <MESSAGE value="Gateway works, number of membership card is randomized finally :) USE THIS GATEWAY PROTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gateway works, number of membership card is randomized finally :) USE THIS GATEWAY PROTO" />
+  </component>
+</project>
