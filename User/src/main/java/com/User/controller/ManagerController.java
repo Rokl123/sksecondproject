@@ -1,10 +1,7 @@
 package com.User.controller;
 
 
-import com.User.dto.ManagerCreateDto;
-import com.User.dto.ManagerDto;
-import com.User.dto.TokenRequestDto;
-import com.User.dto.TokenResponseDto;
+import com.User.dto.*;
 import com.User.security.CheckSecurity;
 import com.User.service.ManagerService;
 import jakarta.validation.Valid;
@@ -33,23 +30,24 @@ public class ManagerController {
     @GetMapping("{id}/getManager")
     @CheckSecurity (roles={"ROLE_ADMIN"})
     public ResponseEntity<ManagerDto> getManager(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
-
-
         return new ResponseEntity<>(managerService.findById(id),HttpStatus.OK);
     }
-
-
-
     @PostMapping("/registerManager")
     public ResponseEntity<ManagerDto> saveManager(@RequestBody @Valid ManagerCreateDto managerCreateDto) {
         //notifikacija
         return new ResponseEntity<>(managerService.add(managerCreateDto), HttpStatus.CREATED);
     }
 
-
     @PostMapping("/login")
     public ResponseEntity<TokenResponseDto> loginManager(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
         //notifikacija
         return new ResponseEntity<>(managerService.login(tokenRequestDto), HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{managerId}")
+    public ResponseEntity<String> updateProfile(@PathVariable("managerId") Long managerId, @RequestBody ManagerUdateDto updatedManager) {
+        managerService.updateProfile(Long.valueOf(managerId), updatedManager);
+
+        return ResponseEntity.ok("Profile updated successfully.");
     }
 }

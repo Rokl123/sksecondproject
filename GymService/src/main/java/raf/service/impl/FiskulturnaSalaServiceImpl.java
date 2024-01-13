@@ -57,14 +57,17 @@ public class FiskulturnaSalaServiceImpl implements FiskulturnaSalaService {
 
     @Override
     public FiskulturnaSalaDto update(Long id, FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto) {
-        FiskulturnaSala fs = fiskulturnaSalaRepository.findById(fiskulturnaSalaUpdateDto.getId()).orElseThrow(()-> new RuntimeException());
-        if(fiskulturnaSalaUpdateDto.getNaziv()!=null)
-        fs.setName(fiskulturnaSalaUpdateDto.getNaziv());
+        FiskulturnaSala fs = fiskulturnaSalaRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        if(fiskulturnaSalaUpdateDto.getName()!=null)
+        fs.setName(fiskulturnaSalaUpdateDto.getName());
         fs.setOpis(fiskulturnaSalaUpdateDto.getOpis());
         if(fiskulturnaSalaUpdateDto.getKapacitet()!= 0)
         fs.setKapacitet(fiskulturnaSalaUpdateDto.getKapacitet());
-        if(fiskulturnaSalaUpdateDto.getBrTrenera() != 0)
-        fs.setBrojTrenera(fiskulturnaSalaUpdateDto.getBrTrenera());
+        if(fiskulturnaSalaUpdateDto.getBrojTrenera() != 0)
+        fs.setBrojTrenera(fiskulturnaSalaUpdateDto.getBrojTrenera());
+        if(fiskulturnaSalaUpdateDto.getLoyalty() != 0)
+            fs.setLoyalty(fiskulturnaSalaUpdateDto.getLoyalty());
 
         fiskulturnaSalaRepository.save(fs);
 
@@ -78,10 +81,10 @@ public class FiskulturnaSalaServiceImpl implements FiskulturnaSalaService {
 
     @Override
     public FiskulturnaSalaDto updateManager(FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto) {
-        FiskulturnaSala fs = fiskulturnaSalaRepository.findById(fiskulturnaSalaUpdateDto.getId()).orElseThrow(()-> new RuntimeException());
+        FiskulturnaSala fs = fiskulturnaSalaRepository.findById(fiskulturnaSalaUpdateDto.getSala_id()).orElseThrow(()-> new RuntimeException());
 
-        if(fiskulturnaSalaUpdateDto.getBrTrenera() != 0)
-            fs.setBrojTrenera(fiskulturnaSalaUpdateDto.getBrTrenera());
+        if(fiskulturnaSalaUpdateDto.getBrojTrenera() != 0)
+            fs.setBrojTrenera(fiskulturnaSalaUpdateDto.getBrojTrenera());
         if(fiskulturnaSalaUpdateDto.getKapacitet()!=0)
             fs.setKapacitet(fiskulturnaSalaUpdateDto.getKapacitet());
         fiskulturnaSalaRepository.save(fs);

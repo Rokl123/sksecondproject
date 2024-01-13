@@ -12,6 +12,10 @@ public interface AdminService {
 
      void unBanClient(Long id);
 
+     void banManager(Long id);
+
+     void unBanManager(Long id);
+
      Page<AdminDto> findAll(Pageable pageable);
 
      TokenResponseDto login(TokenRequestDto tokenRequestDto);

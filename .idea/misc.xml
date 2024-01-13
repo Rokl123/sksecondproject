@@ -10,6 +10,12 @@
         <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
         <option value="$PROJECT_DIR$/GymGateway/pom.xml" />
         <option value="$PROJECT_DIR$/GymEurekaService/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGetaway/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGetaway-master/pom.xml" />
+        <option value="$PROJECT_DIR$/Api-getaway/pom.xml" />
+        <option value="$PROJECT_DIR$/cinema-api-getaway-master/pom.xml" />
+        <option value="$PROJECT_DIR$/api-cloud-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Api-Gateway/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -17,7 +23,6 @@
         <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
       </set>
     </option>
-    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

@@ -18,8 +18,8 @@ public class AdminMapper {
         AdminDto adminDto = new AdminDto();
         adminDto.setId(admin.getId());
         adminDto.setEmail(admin.getEmail());
-        adminDto.setFirstName(admin.getIme());
-        adminDto.setLastName(admin.getPrezime());
+        adminDto.setFirstName(admin.getFirstName());
+        adminDto.setLastName(admin.getLastName());
         adminDto.setUsername(admin.getUsername());
         adminDto.setDatumRodjenja(admin.getDatumRodjenja());
         adminDto.setPassword(admin.getPassword());
@@ -29,8 +29,8 @@ public class AdminMapper {
     public Admin adminCreateDtoToAdmin(AdminCreateDto adminCreateDto) {
         Admin admin = new Admin();
         admin.setEmail(adminCreateDto.getEmail());
-        admin.setIme(adminCreateDto.getFirstName());
-        admin.setPrezime(adminCreateDto.getLastName());
+        admin.setFirstName(adminCreateDto.getFirstName());
+        admin.setLastName(adminCreateDto.getLastName());
         admin.setUsername(adminCreateDto.getUsername());
         admin.setPassword(adminCreateDto.getPassword());
         admin.setDatumRodjenja(adminCreateDto.getDatumRodjenja());

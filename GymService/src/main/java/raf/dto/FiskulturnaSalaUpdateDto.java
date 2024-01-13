@@ -6,15 +6,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FiskulturnaSalaUpdateDto {
-    private Long id;
+    private Long sala_id;
 
-    private String naziv;
+    private String name;
 
     private int kapacitet;
 
     private String opis;
 
-    private int brTrenera;
+    private int brojTrenera;
 
     private int loyalty;
 

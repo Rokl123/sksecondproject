@@ -12,7 +12,7 @@ public class RezervacijaMapper {
        rezervacijaDto.setId(rezervacija.getRezervacija_id());
        rezervacijaDto.setCenaTreninga(rezervacija.getCenaTreninga());
        rezervacijaDto.setTrening(rezervacija.getRezervisaniTrening());
-
+       rezervacijaDto.setClient_id(rezervacija.getClientID());
        return rezervacijaDto;
     }
 

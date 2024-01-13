@@ -16,13 +16,14 @@ import raf.service.FiskulturnaSalaService;
 @RestController
 @RequestMapping("/sala")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class FiskulturnaSalaController {
 
     private FiskulturnaSalaService fiskulturnaSalaService;
 
-    @GetMapping
-    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
-    public ResponseEntity<Page<FiskulturnaSalaDto>> getAllSale(@RequestHeader("Authorization") String authorization, Pageable pageable){
+    @GetMapping("/getAllSale")
+//    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT","ROLE_MANAGER"})
+    public ResponseEntity<Page<FiskulturnaSalaDto>> getAllSale( Pageable pageable){
         return new ResponseEntity<>(fiskulturnaSalaService.findAll(pageable),HttpStatus.OK);
     }
 
@@ -32,10 +33,10 @@ public class FiskulturnaSalaController {
         return new ResponseEntity<>(fiskulturnaSalaService.addSala(fiskulturnaSalaCreateDto), HttpStatus.CREATED);
     }
 
-    @PutMapping
-    @CheckSecurity(roles={"ROLE_ADMIN"})
-    public ResponseEntity<FiskulturnaSalaDto> updateSala(@RequestBody @Valid FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto){
-        return new ResponseEntity<>(fiskulturnaSalaService.update(1L,fiskulturnaSalaUpdateDto), HttpStatus.OK);
+    @PutMapping("/update/{salaId}")
+//    @CheckSecurity(roles={"ROLE_ADMIN"})
+    public ResponseEntity<FiskulturnaSalaDto> updateSala(@PathVariable("salaId") Long salaId,@RequestBody FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto){
+        return new ResponseEntity<>(fiskulturnaSalaService.update(salaId,fiskulturnaSalaUpdateDto), HttpStatus.OK);
     }
 
     @PutMapping("/manager")
@@ -48,7 +49,7 @@ public class FiskulturnaSalaController {
     @DeleteMapping
     @CheckSecurity(roles={"ROLE_ADMIN"})
     public ResponseEntity deleteSala(@RequestBody FiskulturnaSalaUpdateDto fiskulturnaSalaDto){
-        fiskulturnaSalaService.deleteById(fiskulturnaSalaDto.getId());
+        fiskulturnaSalaService.deleteById(fiskulturnaSalaDto.getSala_id());
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 

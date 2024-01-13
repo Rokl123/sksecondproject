@@ -36,13 +36,14 @@ import static org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder.decode;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/reservation")
+@CrossOrigin(origins = "http://localhost:4200")
 public class RezervacijaController {
 
     private RezervacijaService rezervacijaService;
 
-    @GetMapping
-    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
-    public ResponseEntity<Page<RezervacijaDto>> getAllRezervacije(@RequestHeader("Authorization") String authorization, Pageable pageable){
+    @GetMapping("/getAllReservation")
+    //@CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
+    public ResponseEntity<Page<RezervacijaDto>> getAllRezervacije( Pageable pageable){
         return new ResponseEntity<>(rezervacijaService.findAll(pageable), HttpStatus.OK);
     }
     @GetMapping("/client")
@@ -76,9 +77,9 @@ public class RezervacijaController {
         return new ResponseEntity<>(rezervacijaService.update(rezervacijaUpdateDto),HttpStatus.OK);
     }
 
-    @DeleteMapping("/{reservationid}")
+    @DeleteMapping("/delete/{reservationid}")
     @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
-    public ResponseEntity deleteReservation(@RequestHeader("Authorization") String authorization,@PathVariable("reservationid") Long id){ //id rezervacije koju dobijamo kada kliknemo na rezervaciju koju otkazujemo
+    public ResponseEntity deleteReservation(@PathVariable("reservationid") Long id){ //id rezervacije koju dobijamo kada kliknemo na rezervaciju koju otkazujemo
 
         rezervacijaService.deleteById(id);
 

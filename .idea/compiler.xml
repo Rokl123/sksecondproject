@@ -10,12 +10,16 @@
         <module name="GymGateway" />
         <module name="GymService" />
         <module name="GymEurekaService" />
+        <module name="api-getaway" />
         <module name="User" />
         <module name="Notifications" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-cloud-gateway" target="1.8" />
+      <module name="apigateway" target="1.8" />
       <module name="ApiGateway" target="18" />
+      <module name="cinema-api-getaway" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -25,6 +29,10 @@
       <module name="GymService" options="-parameters" />
       <module name="Notifications" options="-parameters" />
       <module name="User" options="-parameters" />
+      <module name="api-cloud-gateway" options="-parameters" />
+      <module name="api-getaway" options="-parameters" />
+      <module name="apigateway" options="-parameters" />
+      <module name="cinema-api-getaway" options="-parameters" />
     </option>
   </component>
 </project>

@@ -3,6 +3,7 @@ package com.Notifications.service.impl;
 import com.Notifications.domain.TipNotifikacije;
 import com.Notifications.dto.TipNotifikacijeCreateDto;
 import com.Notifications.dto.TipNotifikacijeDto;
+import com.Notifications.dto.TipNotifikacijeUpdateDto;
 import com.Notifications.mapper.TipNotifikacijeMapper;
 import com.Notifications.repository.NotificationTypeRepository;
 import com.Notifications.service.TipNotifikacijeService;
@@ -42,10 +43,10 @@ public class TipNotifkacijeServiceImpl implements TipNotifikacijeService {
     }
 
     @Override
-    public TipNotifikacijeDto update(TipNotifikacijeDto tipNotifikacijeDto) {
-        TipNotifikacije tipNotifikacije = notificationTypeRepository.findById(tipNotifikacijeDto.getId()).orElseThrow(() -> new RuntimeException());
-        tipNotifikacije.setNaziv(tipNotifikacijeDto.getNaziv());
+    public void update(Long id,TipNotifikacijeUpdateDto tipNotifikacijeUpdateDto) {
+        TipNotifikacije tipNotifikacije = notificationTypeRepository.findById(id).orElseThrow(() -> new RuntimeException());
+        tipNotifikacije.setNaziv(tipNotifikacijeUpdateDto.getNaziv());
 
-        return tipNotifikacijeMapper.tipNotifikacijeDto(tipNotifikacije);
+        notificationTypeRepository.save(tipNotifikacije);
     }
 }
