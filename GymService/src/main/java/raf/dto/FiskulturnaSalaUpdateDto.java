@@ -8,7 +8,7 @@ import lombok.Setter;
 public class FiskulturnaSalaUpdateDto {
     private Long sala_id;
 
-    private String name;
+    private String naziv;
 
     private int kapacitet;
 

@@ -67,8 +67,7 @@ public class ClientController {
 
 
     @GetMapping("{id}/getClient")
-    @CheckSecurity(roles = {"ROLE_ADMIN"})
-    public ResponseEntity<ClientDto> getAClientById(@RequestHeader("Authorization") String authorization,@PathVariable("id") Long id){
+    public ResponseEntity<ClientDto> getAClientById(@PathVariable("id") Long id){
 
         return new ResponseEntity<>(clientService.findById(id),HttpStatus.OK);
     }

@@ -14,7 +14,7 @@ public class FiskulturnaSalaDto {
 
     private String opis;
 
-    private int brTrenera;
+    private int brojTrenera;
 
     private int loyalty;
 

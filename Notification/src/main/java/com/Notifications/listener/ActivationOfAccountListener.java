@@ -29,6 +29,9 @@ public class ActivationOfAccountListener {
         Notifikacija notifikacija = new Notifikacija();
         notifikacija.setTipNotifikacije(notificationTypeRepository.findById(6L).orElseThrow(RuntimeException::new));
         notifikacija.setDatumSlanja(LocalDateTime.now());
+        notifikacija.setText("You have successfully activated your account, please log in!");
+        notifikacija.setLink("Link");
+        notifikacija.setClientID(clientDto.getId());
         notificationRepository.save(notifikacija);
 
         emailService.sendSimpleMessage(clientDto.getEmail(), "Successful Activation", "You have successfully activated your account, please log in!");

@@ -30,7 +30,7 @@ public class TestDataRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         FiskulturnaSala fiskulturnaSala = new FiskulturnaSala();
         fiskulturnaSala.setKapacitet(20);
-        fiskulturnaSala.setName("Ahilej");
+        fiskulturnaSala.setNaziv("Ahilej");
         fiskulturnaSala.setBrojTrenera(5);
         fiskulturnaSala.setLoyalty(2);
         fiskulturnaSala.setOpis("Neki opis vezan za salu");
@@ -38,7 +38,7 @@ public class TestDataRunner implements CommandLineRunner {
 
         FiskulturnaSala fiskulturnaSala2 = new FiskulturnaSala();
         fiskulturnaSala2.setKapacitet(15);
-        fiskulturnaSala2.setName("Naziv druge sale");
+        fiskulturnaSala2.setNaziv("Naziv druge sale");
         fiskulturnaSala2.setBrojTrenera(4);
         fiskulturnaSala2.setLoyalty(3);
         fiskulturnaSala2.setOpis("Opis druge sale");
@@ -46,7 +46,7 @@ public class TestDataRunner implements CommandLineRunner {
 
         FiskulturnaSala fiskulturnaSala3 = new FiskulturnaSala();
         fiskulturnaSala3.setKapacitet(25);
-        fiskulturnaSala3.setName("Naziv treće sale");
+        fiskulturnaSala3.setNaziv("Naziv treće sale");
         fiskulturnaSala3.setBrojTrenera(6);
         fiskulturnaSala3.setLoyalty(1);
         fiskulturnaSala3.setOpis("Opis treće sale");
@@ -55,7 +55,7 @@ public class TestDataRunner implements CommandLineRunner {
 
         FiskulturnaSala fiskulturnaSala4 = new FiskulturnaSala();
         fiskulturnaSala4.setKapacitet(18);
-        fiskulturnaSala4.setName("Naziv četvrte sale");
+        fiskulturnaSala4.setNaziv("Naziv četvrte sale");
         fiskulturnaSala4.setBrojTrenera(3);
         fiskulturnaSala4.setLoyalty(4);
         fiskulturnaSala4.setOpis("Opis četvrte sale");

@@ -75,7 +75,7 @@ public class RezervacijaController {
     }
 
     @DeleteMapping("/delete/{reservationid}")
-    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
+//    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_MANAGER"})
     public ResponseEntity deleteReservation(@PathVariable("reservationid") Long id){ //id rezervacije koju dobijamo kada kliknemo na rezervaciju koju otkazujemo
 
         rezervacijaService.deleteById(id);
@@ -84,9 +84,8 @@ public class RezervacijaController {
     }
 
     @DeleteMapping("/client/{id}/{resid}")
-    @CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT"})
-    public ResponseEntity<Void> deleteReservationClient(@RequestHeader("Authorization") String authorization,@PathVariable Long id,
-    @PathVariable("resid") Long resid){ //clientId
+    //@CheckSecurity(roles={"ROLE_ADMIN","ROLE_CLIENT"})
+    public ResponseEntity<Void> deleteReservationClient(@PathVariable Long id, @PathVariable("resid") Long resid){ //clientId
 
         rezervacijaService.deleteByIdClient(id,resid);
 

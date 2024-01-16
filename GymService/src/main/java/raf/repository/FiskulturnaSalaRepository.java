@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface FiskulturnaSalaRepository extends JpaRepository<FiskulturnaSala,Long> {
 
     // TODO do finds
-    Optional<FiskulturnaSala> findByName(String name);
+    Optional<FiskulturnaSala> findByNaziv(String name);
 
 }

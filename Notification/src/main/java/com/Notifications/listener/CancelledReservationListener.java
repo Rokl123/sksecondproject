@@ -50,6 +50,9 @@ public class CancelledReservationListener {
             emailService.sendSimpleMessage(clientDto.getEmail(),"Cancelled Reservation","Your reservation is successfully cancelled!");
             Notifikacija notifikacija = new Notifikacija();
             notifikacija.setDatumSlanja(LocalDateTime.now());
+            notifikacija.setClientID(clientDto.getId());
+            notifikacija.setText("Your reservation is successfully cancelled!");
+            notifikacija.setLink("Link");
             notifikacija.setTipNotifikacije(notificationTypeRepository.findById(3L).orElseThrow(RuntimeException::new));
             notifikacija.setText(String.format("Your reservation is successfully cancelled!, for client with %d id.",clientDto.getId()));
             notificationRepository.save(notifikacija);

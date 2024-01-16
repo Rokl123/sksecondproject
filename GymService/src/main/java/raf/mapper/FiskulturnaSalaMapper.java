@@ -14,9 +14,9 @@ public class FiskulturnaSalaMapper {
     public FiskulturnaSalaDto DomainObjectToDto(FiskulturnaSala fs){
         FiskulturnaSalaDto fsDto = new FiskulturnaSalaDto();
         fsDto.setId(fs.getSala_id());
-        fsDto.setNaziv(fs.getName());
+        fsDto.setNaziv(fs.getNaziv());
         fsDto.setKapacitet(fs.getKapacitet());
-        fsDto.setBrTrenera(fs.getBrojTrenera());
+        fsDto.setBrojTrenera(fs.getBrojTrenera());
         fsDto.setOpis(fs.getOpis());
         fsDto.setManager_id(fs.getManager_id());
         fsDto.setLoyalty(fs.getLoyalty());
@@ -26,7 +26,7 @@ public class FiskulturnaSalaMapper {
     public FiskulturnaSala DtoToDomainObject(FiskulturnaSalaCreateDto fsDto){
 
         FiskulturnaSala fs = new FiskulturnaSala();
-        fs.setName(fsDto.getName());
+        fs.setNaziv(fsDto.getName());
         fs.setOpis(fsDto.getOpis());
         if(fsDto.getKapacitet() != 0)
         fs.setKapacitet(fsDto.getKapacitet());

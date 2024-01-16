@@ -12,5 +12,4 @@ public interface TreningRepository extends JpaRepository<Trening,Long> {
     // TODO: Napravi findByApppointment
 
     Optional<Trening> findByTerminTreninga(Date datum);
-
 }

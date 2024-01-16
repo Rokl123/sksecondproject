@@ -32,6 +32,9 @@ public class ActivationMailListener {
         Notifikacija notifikacija = new Notifikacija();
         notifikacija.setTipNotifikacije(notificationTypeRepository.findById(2L).orElseThrow(RuntimeException::new));
         notifikacija.setDatumSlanja(LocalDateTime.now());
+        notifikacija.setText("Please click on the link below to activate your account!");
+        notifikacija.setLink(clientDto.getActivationMail());
+        notifikacija.setClientID(clientDto.getId());
         notificationRepository.save(notifikacija);
 
         emailService.sendSimpleMessage(clientDto.getEmail(), "Activation Mail", "Please click on the link below to activate your account!\n" + clientDto.getActivationMail());

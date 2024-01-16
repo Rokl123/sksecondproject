@@ -41,6 +41,9 @@ public class CancelledTrainingListener{
         Notifikacija notifikacija = new Notifikacija();
         notifikacija.setTipNotifikacije(notificationTypeRepository.findById(4L).orElseThrow(RuntimeException::new));
         notifikacija.setDatumSlanja(LocalDateTime.now());
+        notifikacija.setText("We are sorry to inform you that your reservation for training");
+        notifikacija.setLink("Link");
+        notifikacija.setClientID(clientDto.getId());
         notificationRepository.save(notifikacija);
 
         emailService.sendSimpleMessage(clientDto.getEmail(),"Training cancellation","We are sorry to inform you that your reservation for training" +

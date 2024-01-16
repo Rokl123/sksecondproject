@@ -17,7 +17,7 @@ public class FiskulturnaSala {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sala_id;
 
-    private String name;
+    private String naziv;
 
     private int kapacitet;
 

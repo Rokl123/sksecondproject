@@ -13,7 +13,6 @@ import java.util.Optional;
 @Repository
 public interface RezervacijaRepository extends JpaRepository<Rezervacija,Long> {
 
-    Optional<Rezervacija> findByRezervisaniTrening_Sala_Name(String nazivSale);
 
     Page<Rezervacija> findAllByClientID(Pageable pageable,Long client_id);
 

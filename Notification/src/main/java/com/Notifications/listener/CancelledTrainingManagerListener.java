@@ -46,6 +46,9 @@ public class CancelledTrainingManagerListener {
             managerDto = managerDtoResponseEntity.getBody();
             Notifikacija notifikacija = new Notifikacija();
             notifikacija.setDatumSlanja(LocalDateTime.now());
+            notifikacija.setClientID(managerDto.getId());
+            notifikacija.setText("Training has been successfully cancelled and users are informed about it!");
+            notifikacija.setLink("Link");
             notifikacija.setTipNotifikacije(notificationTypeRepository.findById(4L).orElseThrow(RuntimeException::new));
             emailService.sendSimpleMessage(managerDto.getEmail(),"Training has been cancelled","Training has been successfully cancelled and users are informed about it!");
         }

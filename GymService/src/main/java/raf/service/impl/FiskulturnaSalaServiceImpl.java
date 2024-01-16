@@ -59,8 +59,8 @@ public class FiskulturnaSalaServiceImpl implements FiskulturnaSalaService {
     public FiskulturnaSalaDto update(Long id, FiskulturnaSalaUpdateDto fiskulturnaSalaUpdateDto) {
         FiskulturnaSala fs = fiskulturnaSalaRepository.findById(id).orElseThrow(RuntimeException::new);
 
-        if(fiskulturnaSalaUpdateDto.getName()!=null)
-        fs.setName(fiskulturnaSalaUpdateDto.getName());
+        if(fiskulturnaSalaUpdateDto.getNaziv()!=null)
+        fs.setNaziv(fiskulturnaSalaUpdateDto.getNaziv());
         fs.setOpis(fiskulturnaSalaUpdateDto.getOpis());
         if(fiskulturnaSalaUpdateDto.getKapacitet()!= 0)
         fs.setKapacitet(fiskulturnaSalaUpdateDto.getKapacitet());
